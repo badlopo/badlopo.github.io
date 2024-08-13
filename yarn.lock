@@ -209,6 +209,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@remix-run/router@npm:1.19.0":
+  version: 1.19.0
+  resolution: "@remix-run/router@npm:1.19.0"
+  checksum: 467495864dd99fed3ba7861482cee56fd8c3a1a5cb17fe7bbf22774b0d90315c75d155f7eced0616bdeaceef1d79846b7c44f99873619e3204cfb9e4665e0a3c
+  languageName: node
+  linkType: hard
+
 "@rollup/rollup-android-arm-eabi@npm:4.20.0":
   version: 4.20.0
   resolution: "@rollup/rollup-android-arm-eabi@npm:4.20.0"
@@ -562,6 +569,7 @@ __metadata:
     "@vitejs/plugin-react-swc": ^3.5.0
     react: ^18.3.1
     react-dom: ^18.3.1
+    react-router-dom: ^6.26.0
     typescript: ^5.5.3
     vite: ^5.4.0
   languageName: unknown
@@ -1250,6 +1258,30 @@ __metadata:
   peerDependencies:
     react: ^18.3.1
   checksum: 298954ecd8f78288dcaece05e88b570014d8f6dce5db6f66e6ee91448debeb59dcd31561dddb354eee47e6c1bb234669459060deb238ed0213497146e555a0b9
+  languageName: node
+  linkType: hard
+
+"react-router-dom@npm:^6.26.0":
+  version: 6.26.0
+  resolution: "react-router-dom@npm:6.26.0"
+  dependencies:
+    "@remix-run/router": 1.19.0
+    react-router: 6.26.0
+  peerDependencies:
+    react: ">=16.8"
+    react-dom: ">=16.8"
+  checksum: 1579aa122884c286ffb2821c90403ac58b3c39f0d1cc8440b2bdd5de406c2dec0826c3a2bc473528b28728f0c35904045fdd7b7bfc17ad788c69816411ef5074
+  languageName: node
+  linkType: hard
+
+"react-router@npm:6.26.0":
+  version: 6.26.0
+  resolution: "react-router@npm:6.26.0"
+  dependencies:
+    "@remix-run/router": 1.19.0
+  peerDependencies:
+    react: ">=16.8"
+  checksum: 60ed0f33584f43ff64ffc66e8d58fd1605749e249684e15637f6af427d35b01d91addcaf857300e955bb09a33ea644322b28da98adf0764cd07ceb7399118561
   languageName: node
   linkType: hard
 
