@@ -1,7 +1,10 @@
 import { createHashRouter, RouteObject } from "react-router-dom";
-import { IndexPage } from "../pages";
-import { AboutPage } from "../pages/about.tsx";
 import { RootLayout } from "./layout.tsx";
+import { IndexPage } from "../pages";
+import { PoemPage } from "../pages/poem.tsx";
+import { PostPage } from "../pages/post.tsx";
+import { ProjectPage } from "../pages/project.tsx";
+import { AboutPage } from "../pages/about.tsx";
 
 const routes: RouteObject[] = [
     {
@@ -10,6 +13,18 @@ const routes: RouteObject[] = [
             {
                 path: '/',
                 element: <IndexPage/>,
+            },
+            {
+                path: '/poem',
+                element: <PoemPage/>
+            },
+            {
+                path: '/post',
+                element: <PostPage/>
+            },
+            {
+                path: '/project',
+                element: <ProjectPage/>
             },
             {
                 path: '/about',
