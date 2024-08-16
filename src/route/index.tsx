@@ -1,11 +1,12 @@
 import { createHashRouter, RouteObject } from "react-router-dom";
 import { RootLayout } from "./layout.tsx";
 import { IndexPage } from "../pages";
-import { PoemPage } from "../pages/poem.tsx";
-import { PostPage } from "../pages/post.tsx";
-import { ProjectPage } from "../pages/project.tsx";
-import { AboutPage } from "../pages/about.tsx";
 import { PoemGalleryPage } from "../pages/poem_gallery.tsx";
+import { PoemPage } from "../pages/poem.tsx";
+import { PostGalleryPage } from "../pages/post_gallery.tsx";
+import { PostPage } from "../pages/post.tsx";
+import { ProjectGalleryPage } from "../pages/project_gallery.tsx";
+import { AboutPage } from "../pages/about.tsx";
 
 const routes: RouteObject[] = [
     {
@@ -26,11 +27,16 @@ const routes: RouteObject[] = [
             },
             {
                 path: '/post',
+                element: <PostGalleryPage/>
+            },
+            {
+                path: '/post/:name',
+                loader: PostPage.loader,
                 element: <PostPage/>
             },
             {
                 path: '/project',
-                element: <ProjectPage/>
+                element: <ProjectGalleryPage/>
             },
             {
                 path: '/about',
