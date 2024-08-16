@@ -14,6 +14,7 @@ const routes: RouteObject[] = [
         children: [
             {
                 path: '/',
+                loader: IndexPage.loader,
                 element: <IndexPage/>,
             },
             {
