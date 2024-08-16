@@ -1,13 +1,16 @@
-import { PostConfig, postLoader } from "../utils/loader.ts";
+import { RawConfig, rawLoader } from "../utils/loader.ts";
 import { useLoaderData } from "react-router-dom";
-import { PostRenderer } from "../layouts/post.tsx";
 
 const AboutPage = () => {
-    const config = useLoaderData() as PostConfig
-    return <PostRenderer config={ config }/>
+    const { content } = useLoaderData() as RawConfig
+    return (
+        <main>
+            <div dangerouslySetInnerHTML={ { __html: content } }/>
+        </main>
+    )
 }
 
-AboutPage.loader = () => postLoader('/source/about/about.md')
+AboutPage.loader = () => rawLoader('/source/about.md')
 
 export {
     AboutPage,

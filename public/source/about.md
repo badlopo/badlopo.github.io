@@ -1,6 +1,4 @@
-About
-2024/08/13
-2024/08/13
+# About
 
 > If you're a plumber, you're better off learning how to use an ax by chopping down trees with it than unclogging gutters.
 

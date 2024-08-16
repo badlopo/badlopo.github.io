@@ -1,5 +1,19 @@
 import { marked } from "marked";
 
+type RawConfig = {
+    content: string
+}
+
+const rawLoader = async (path: string): Promise<RawConfig | null> => {
+    try {
+        const raw = await fetch(path).then(r => r.text())
+        return { content: marked.parse(raw) as string }
+    } catch (err) {
+        console.error(`[poemLoader] ${ path }`, err)
+        return null
+    }
+}
+
 type PostConfig = {
     title: string
     createTime: Date
@@ -13,7 +27,7 @@ type PostConfig = {
 const postLoader = async (path: string): Promise<PostConfig | null> => {
     try {
         const raw = await fetch(path).then(r => r.text())
-        console.log(raw)
+
         const segments = []
         let ptr = 0;
         for (let i = 0; i < raw.length; i++) {
@@ -38,9 +52,11 @@ const postLoader = async (path: string): Promise<PostConfig | null> => {
 }
 
 export type {
+    RawConfig,
     PostConfig,
 }
 
 export {
+    rawLoader,
     postLoader,
 }
