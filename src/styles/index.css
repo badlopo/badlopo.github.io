@@ -39,11 +39,12 @@ nav {
         height: 78px;
         padding: 0 0.5em;
         color: #0F1219;
+        font-variant-caps: small-caps;
         text-decoration: none;
         display: inline-flex;
         align-items: center;
 
-        &.active:before {
+        &.active::before {
             content: "";
             position: absolute;
             left: 0;
