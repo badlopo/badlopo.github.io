@@ -2,18 +2,22 @@ import { ProjectCard } from "../components/project_card.tsx";
 
 const ProjectGalleryPage = () => {
     return (
-        <div className={ '' }>
-            TODO: project gallery
-
-            {/* test case: */ }
+        <main className={ 'project-gallery' }>
             <ProjectCard
                 title={ 'project1' }
                 description={ 'this is a brief description' }
                 cover={ '/lopo.svg' }
                 link={ '' }/>
-        </div>
+            <ProjectCard
+                title={ 'project1' }
+                description={ 'this is a brief description' }
+                link={ '' }/>
+        </main>
     )
 }
+
+// TODO: Add loader
+ProjectGalleryPage.loader = () => null
 
 export {
     ProjectGalleryPage,
