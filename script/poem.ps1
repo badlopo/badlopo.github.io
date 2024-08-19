@@ -5,7 +5,7 @@ function main
     $target = Join-Path -Path $public -ChildPath "archive\poem.json"
     $items = Get-ChildItem -Path $source -Filter "*.md"
 
-    $sitemap = @{
+    $config = @{
         total = $items.Count
         date = [long]((Get-Date) - [datetime]'1970-01-01').TotalMilliseconds
         items = New-Object System.Collections.ArrayList
@@ -16,14 +16,15 @@ function main
         $content = Get-Content $item.FullName -Encoding UTF8
         $line1 = $content.Split("`n")[0]
 
-        $sitemap.items.Add(@{
+        $config.items.Add(@{
             title = $line1.Substring(2)
             path = $item.Name.Replace(".md", "")
         }) | Out-Null
     }
 
-    $json = ConvertTo-Json $sitemap -Depth 5 -Compress
+    $json = ConvertTo-Json $config -Depth 5 -Compress
     Write-Output $json > $target
+    Write-Output "Poem archive has been generated."
 }
 
 main
