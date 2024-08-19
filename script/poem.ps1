@@ -19,11 +19,16 @@ function main
         $config.items.Add(@{
             title = $line1.Substring(2)
             path = $item.Name.Replace(".md", "")
-        }) | Out-Null
+        }) | Out-Null  # omit the output of 'Add' method
     }
 
+    # convert the configuration to JSON format
     $json = ConvertTo-Json $config -Depth 5 -Compress
-    Write-Output $json > $target
+
+    # save the JSON to the target file (use 'Out-File' to specify the encoding)
+    Out-File -FilePath $target -Encoding UTF8 -InputObject $json
+
+    # indicate the completion of the script
     Write-Output "Poem archive has been generated."
 }
 
