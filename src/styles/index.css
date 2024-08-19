@@ -119,6 +119,7 @@ ul {
 }
 
 a {
+    color: currentColor;
     text-decoration: none;
 }
 
@@ -135,6 +136,13 @@ button {
 
     &:hover {
         border-color: #646cff;
+    }
+}
+
+.poem-gallery {
+    a:hover {
+        text-decoration: underline;
+        text-underline-offset: 0.25rem;
     }
 }
 
