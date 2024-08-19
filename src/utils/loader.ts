@@ -1,5 +1,42 @@
 import { marked } from "marked";
 
+// ===== archive =====
+type PoemArchive = {
+    date: number
+    total: number
+    items: {
+        title: string
+        path: string
+    }[]
+}
+
+type ProseArchive = {
+    // TODO: prose archive
+}
+
+type ProjectArchive = {
+    // TODO: project archive
+}
+
+// overload signature of archiveLoader
+interface ArchiveLoader {
+    (category: 'poem'): Promise<PoemArchive | null>
+
+    (category: 'prose'): Promise<ProseArchive | null>
+
+    (category: 'project'): Promise<ProjectArchive | null>
+}
+
+const archiveLoader: ArchiveLoader = async (category) => {
+    try {
+        return fetch(`/archive/${ category }.json`).then(r => r.json())
+    } catch (err) {
+        console.error(`[archiveLoader] ${ category }`, err)
+        return null
+    }
+}
+
+// ===== raw =====
 type RawConfig = {
     content: string
 }
@@ -14,6 +51,7 @@ const rawLoader = async (path: string): Promise<RawConfig | null> => {
     }
 }
 
+// ===== post =====
 type PostConfig = {
     title: string
     createTime: Date
@@ -52,11 +90,15 @@ const postLoader = async (path: string): Promise<PostConfig | null> => {
 }
 
 export type {
+    PoemArchive,
+    ProseArchive,
+    ProjectArchive,
     RawConfig,
     PostConfig,
 }
 
 export {
+    archiveLoader,
     rawLoader,
     postLoader,
 }
