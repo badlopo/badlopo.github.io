@@ -51,8 +51,8 @@ const rawLoader = async (path: string): Promise<RawConfig | null> => {
     }
 }
 
-// ===== post =====
-type PostConfig = {
+// ===== prose =====
+type ProseConfig = {
     title: string
     createTime: Date
     modifyTime: Date
@@ -62,7 +62,7 @@ type PostConfig = {
 /**
  * @param path path to the source file
  */
-const postLoader = async (path: string): Promise<PostConfig | null> => {
+const proseLoader = async (path: string): Promise<ProseConfig | null> => {
     try {
         const raw = await fetch(path).then(r => r.text())
 
@@ -94,11 +94,11 @@ export type {
     ProseArchive,
     ProjectArchive,
     RawConfig,
-    PostConfig,
+    ProseConfig,
 }
 
 export {
     archiveLoader,
     rawLoader,
-    postLoader,
+    proseLoader,
 }

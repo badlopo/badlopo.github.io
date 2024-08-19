@@ -1,8 +1,8 @@
 import { LoaderFunctionArgs, useLoaderData } from "react-router-dom";
-import { PostConfig, postLoader } from "../utils/loader.ts";
+import { ProseConfig, proseLoader } from "../utils/loader.ts";
 
-const PostPage = () => {
-    const { title, createTime, modifyTime, content } = useLoaderData() as PostConfig
+const ProsePage = () => {
+    const { title, createTime, modifyTime, content } = useLoaderData() as ProseConfig
     return (
         <main>
             <h1 style={ { marginTop: 12, textAlign: 'center' } }>{ title }</h1>
@@ -15,8 +15,8 @@ const PostPage = () => {
     )
 }
 
-PostPage.loader = ({ params }: LoaderFunctionArgs) => postLoader(`/source/post/${ params.name }.md`)
+ProsePage.loader = ({ params }: LoaderFunctionArgs) => proseLoader(`/source/post/${ params.name }.md`)
 
 export {
-    PostPage,
+    ProsePage,
 }

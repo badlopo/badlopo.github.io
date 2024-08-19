@@ -1,10 +1,10 @@
 import { createHashRouter, RouteObject } from "react-router-dom";
 import { RootLayout } from "./layout.tsx";
 import { IndexPage } from "../pages";
+import { ProseGalleryPage } from "../pages/prose_gallery.tsx";
+import { ProsePage } from "../pages/prose.tsx";
 import { PoemGalleryPage } from "../pages/poem_gallery.tsx";
 import { PoemPage } from "../pages/poem.tsx";
-import { PostGalleryPage } from "../pages/post_gallery.tsx";
-import { PostPage } from "../pages/post.tsx";
 import { ProjectGalleryPage } from "../pages/project_gallery.tsx";
 import { AboutPage } from "../pages/about.tsx";
 import { MePage } from "../pages/me.tsx";
@@ -19,6 +19,15 @@ const routes: RouteObject[] = [
                 element: <IndexPage/>,
             },
             {
+                path: '/prose',
+                element: <ProseGalleryPage/>
+            },
+            {
+                path: '/prose/:name',
+                loader: ProsePage.loader,
+                element: <ProsePage/>
+            },
+            {
                 path: '/poem',
                 loader: PoemGalleryPage.loader,
                 element: <PoemGalleryPage/>
@@ -27,15 +36,6 @@ const routes: RouteObject[] = [
                 path: '/poem/:name',
                 loader: PoemPage.loader,
                 element: <PoemPage/>
-            },
-            {
-                path: '/post',
-                element: <PostGalleryPage/>
-            },
-            {
-                path: '/post/:name',
-                loader: PostPage.loader,
-                element: <PostPage/>
             },
             {
                 path: '/project',

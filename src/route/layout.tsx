@@ -8,10 +8,11 @@ const RootLayout = () => {
                     <img width={ 75 } height={ 36 } src="/lopo_animate.svg" alt=""/>
                 </Link>
 
-                {/*<NavLink to={ '/poem' }>Poem</NavLink>*/}
-                <NavLink to={ '/post' }>Post</NavLink>
+                <NavLink to={ '/prose' }>Prose</NavLink>
+                <NavLink to={ '/poem' }>Poem</NavLink>
                 <NavLink to={ '/project' }>Project</NavLink>
                 <NavLink to={ '/about' }>About</NavLink>
+                <NavLink to={ '/me' }>Me</NavLink>
             </nav>
 
             <Outlet/>
