@@ -7,6 +7,7 @@ import { PostGalleryPage } from "../pages/post_gallery.tsx";
 import { PostPage } from "../pages/post.tsx";
 import { ProjectGalleryPage } from "../pages/project_gallery.tsx";
 import { AboutPage } from "../pages/about.tsx";
+import { MePage } from "../pages/me.tsx";
 
 const routes: RouteObject[] = [
     {
@@ -19,6 +20,7 @@ const routes: RouteObject[] = [
             },
             {
                 path: '/poem',
+                loader: PoemGalleryPage.loader,
                 element: <PoemGalleryPage/>
             },
             {
@@ -44,6 +46,10 @@ const routes: RouteObject[] = [
                 loader: AboutPage.loader,
                 element: <AboutPage/>
             },
+            {
+                path: '/me',
+                element: <MePage/>
+            }
         ],
     },
 ]
