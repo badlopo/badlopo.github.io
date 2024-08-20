@@ -13,9 +13,9 @@ const PoemGalleryPage = () => {
 
             <ul>
                 {
-                    items.map(({ title, path }, index) => (
+                    items.map(({ title, filename }, index) => (
                         <li key={ index }>
-                            <Link to={ `/poem/${ path }` }>
+                            <Link to={ `/poem/${ filename }` }>
                                 { title }
                             </Link>
                         </li>

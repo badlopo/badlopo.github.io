@@ -18,7 +18,7 @@ function main
 
         $config.items.Add(@{
             title = $line1.Substring(2)
-            path = $item.Name.Replace(".md", "")
+            filename = $item.Name.Replace(".md", "")
         }) | Out-Null  # omit the output of 'Add' method
     }
 

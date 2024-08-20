@@ -23,7 +23,7 @@ const routes: RouteObject[] = [
                 element: <ProseGalleryPage/>
             },
             {
-                path: '/prose/:name',
+                path: '/prose/:filename',
                 loader: ProsePage.loader,
                 element: <ProsePage/>
             },
@@ -33,7 +33,7 @@ const routes: RouteObject[] = [
                 element: <PoemGalleryPage/>
             },
             {
-                path: '/poem/:name',
+                path: '/poem/:filename',
                 loader: PoemPage.loader,
                 element: <PoemPage/>
             },

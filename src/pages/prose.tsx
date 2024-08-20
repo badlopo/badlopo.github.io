@@ -15,7 +15,7 @@ const ProsePage = () => {
     )
 }
 
-ProsePage.loader = ({ params }: LoaderFunctionArgs) => proseLoader(params.name!)
+ProsePage.loader = ({ params }: LoaderFunctionArgs) => proseLoader(params.filename!)
 
 export {
     ProsePage,

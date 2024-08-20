@@ -10,7 +10,7 @@ const PoemPage = () => {
     )
 }
 
-PoemPage.loader = ({ params }: LoaderFunctionArgs) => rawLoader(`/source/poem/${ params.name }.md`)
+PoemPage.loader = ({ params }: LoaderFunctionArgs) => rawLoader(`/source/poem/${ params.filename }.md`)
 
 export {
     PoemPage,

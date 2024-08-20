@@ -6,7 +6,7 @@ type PoemArchive = {
     total: number
     items: {
         title: string
-        path: string
+        filename: string
     }[]
 }
 
@@ -59,9 +59,9 @@ type ProseConfig = {
     content: string
 }
 
-const proseLoader = async (name: string): Promise<ProseConfig | null> => {
+const proseLoader = async (filename: string): Promise<ProseConfig | null> => {
     try {
-        const raw = await fetch(`/source/prose/${ name }.md`).then(r => r.text())
+        const raw = await fetch(`/source/prose/${ filename }.md`).then(r => r.text())
 
         const segments = []
         let ptr = 0;
@@ -81,7 +81,7 @@ const proseLoader = async (name: string): Promise<ProseConfig | null> => {
             content: marked.parse(content) as string,
         }
     } catch (err) {
-        console.error(`[proseLoader] ${ name }`, err)
+        console.error(`[proseLoader] ${ filename }`, err)
         return null
     }
 }
