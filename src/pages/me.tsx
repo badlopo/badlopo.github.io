@@ -1,8 +1,8 @@
 const MePage = () => {
     return (
-        <main>
+        <main className={ 'post-view me' }>
             <h1>Dark & Moody!</h1>
-            <h1 style={ { textAlign: 'end' } }>-- lopo</h1>
+            <p style={ { textAlign: 'end' } }>-- <b>lopo</b></p>
         </main>
     )
 }

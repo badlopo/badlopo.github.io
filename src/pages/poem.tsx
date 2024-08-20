@@ -4,7 +4,7 @@ import { RawConfig, rawLoader } from "../utils/loader.ts";
 const PoemPage = () => {
     const { content } = useLoaderData() as RawConfig
     return (
-        <main>
+        <main className={ 'post-view poem' }>
             <div dangerouslySetInnerHTML={ { __html: content } }/>
         </main>
     )

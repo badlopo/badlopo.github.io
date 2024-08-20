@@ -4,9 +4,9 @@ import { archiveLoader, PoemArchive } from "../utils/loader.ts";
 const PoemGalleryPage = () => {
     const { date, total, items } = useLoaderData() as PoemArchive
     return (
-        <main className={ 'poem-gallery' }>
-            <h1 style={ { marginTop: 12, textAlign: 'center' } }>Poems</h1>
-            <div style={ { margin: '16px 0', fontSize: 13, fontFamily: 'Atkinson', textAlign: 'center' } }>
+        <main className={ 'gallery-view poem-gallery' }>
+            <h1>Poems</h1>
+            <div className={ 'meta-section' }>
                 <span>Updated: { new Date(date).toLocaleDateString() }</span>
                 <span style={ { marginLeft: 16 } }>Total: { total }</span>
             </div>

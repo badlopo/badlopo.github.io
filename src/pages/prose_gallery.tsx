@@ -1,8 +1,8 @@
 const ProseGalleryPage = () => {
     return (
-        <div>
+        <main className={ 'gallery-view prose-gallery' }>
             TODO: ProseGallery view
-        </div>
+        </main>
     )
 }
 

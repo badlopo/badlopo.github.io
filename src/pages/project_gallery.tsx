@@ -2,7 +2,7 @@ import { ProjectCard } from "../components/project_card.tsx";
 
 const ProjectGalleryPage = () => {
     return (
-        <main className={ 'project-gallery' }>
+        <main className={ 'gallery-view project-gallery' }>
             <ProjectCard
                 title={ 'project1' }
                 description={ 'this is a brief description' }

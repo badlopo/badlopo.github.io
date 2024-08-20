@@ -1,5 +1,6 @@
+/* global */
 :root {
-    background-color: #E5E9F080;
+    background-color: #e5e9f080;
     font-family: "Poets Electra", Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
     font-weight: 400;
     line-height: 1.5;
@@ -20,6 +21,61 @@ html, body, #root {
 #root {
     overflow: hidden auto;
 }
+
+blockquote {
+    position: relative;
+    padding: 0 0 0 20px;
+    margin: 0;
+    font-size: 1.25em;
+
+    &:before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 4px;
+        height: 100%;
+        border-radius: 2px;
+        background-color: #2337ff;
+    }
+}
+
+code {
+    padding: 2px 5px;
+    background-color: rgb(229, 233, 240);
+    border-radius: 2px;
+    font-family: 'JetBrains Mono', monospace !important;
+    font-variant-ligatures: none !important;
+}
+
+hr {
+    height: 2px;
+    margin: 0;
+    border: 0;
+    background-image: repeating-linear-gradient(-45deg, #ddd, #ddd 4px, transparent 4px, transparent 8px);
+}
+
+ul {
+    padding-left: 1rem;
+}
+
+button {
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    transition: border-color 0.25s;
+
+    &:hover {
+        border-color: #646cff;
+    }
+}
+
+/* layout */
 
 nav {
     position: sticky;
@@ -61,88 +117,50 @@ main {
     width: 720px;
     max-width: 100%;
     margin: 1.25rem auto;
-    padding: 1rem 3rem;
+    padding: 2rem 3rem;
     background-color: white;
     box-shadow: 0 0 20px #0000000d;
     white-space: pre-wrap;
 
     h1 {
         font-style: italic;
+        text-align: center;
     }
 
     sub {
         color: #777777;
         font-size: 0.8rem;
     }
-}
 
-/* reset 'white-space' set in 'main' */
-blockquote, ul {
-    white-space: initial;
-}
+    blockquote, ul {
+        white-space: initial;
+    }
 
-blockquote {
-    position: relative;
-    padding: 0 0 0 20px;
-    margin: 0;
-    font-size: 1.25em;
-
-    &:before {
-        content: "";
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 4px;
-        height: 100%;
-        border-radius: 2px;
-        background-color: #2337ff;
+    .meta-section {
+        margin: 1rem 0;
+        font-size: 13px;
+        font-family: Atkinson;
+        text-align: center;
     }
 }
 
-code {
-    padding: 2px 5px;
-    background-color: rgb(229, 233, 240);
-    border-radius: 2px;
-    font-family: 'JetBrains Mono', monospace !important;
-    font-variant-ligatures: none !important;
-}
+.gallery-view {
+    a {
+        color: currentColor;
+        text-decoration: none;
 
-hr {
-    height: 2px;
-    margin: 0;
-    border: 0;
-    background-image: repeating-linear-gradient(-45deg, #ddd, #ddd 4px, transparent 4px, transparent 8px);
-}
-
-ul {
-    padding-left: 1rem;
-}
-
-a {
-    color: currentColor;
-    text-decoration: none;
-}
-
-button {
-    border-radius: 8px;
-    border: 1px solid transparent;
-    padding: 0.6em 1.2em;
-    font-size: 1em;
-    font-weight: 500;
-    font-family: inherit;
-    background-color: #f9f9f9;
-    cursor: pointer;
-    transition: border-color 0.25s;
-
-    &:hover {
-        border-color: #646cff;
+        &:hover {
+            text-decoration: underline #2337ff;
+            text-underline-offset: 0.25rem;
+        }
     }
 }
 
-.poem-gallery {
-    a:hover {
-        text-decoration: underline;
-        text-underline-offset: 0.25rem;
+.post-view {
+    a {
+        color: #2337ff;
+        text-decoration: underline #2337ff;
+        text-underline-offset: 0.125rem;
     }
 }
 

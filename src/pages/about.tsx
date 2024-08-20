@@ -4,7 +4,7 @@ import { useLoaderData } from "react-router-dom";
 const AboutPage = () => {
     const { content } = useLoaderData() as RawConfig
     return (
-        <main>
+        <main className={ 'post-view about' }>
             <div dangerouslySetInnerHTML={ { __html: content } }/>
         </main>
     )
