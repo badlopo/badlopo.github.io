@@ -15,6 +15,7 @@ type ProseArchive = {
     total: number
     items: {
         title: string
+        filename: string
         created: string
         updated: string | null
     }[]

@@ -20,6 +20,7 @@ const routes: RouteObject[] = [
             },
             {
                 path: '/prose',
+                loader: ProseGalleryPage.loader,
                 element: <ProseGalleryPage/>
             },
             {

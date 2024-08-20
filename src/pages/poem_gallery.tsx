@@ -5,9 +5,9 @@ const PoemGalleryPage = () => {
     const { date, total, items } = useLoaderData() as PoemArchive
     return (
         <main className={ 'gallery-view poem-gallery' }>
-            <h1>Poems</h1>
+            <h1>Poem</h1>
             <div className={ 'meta-section' }>
-                <span>Updated: { new Date(date).toLocaleDateString() }</span>
+                <span>Archived: { new Date(date).toLocaleDateString() }</span>
                 <span style={ { marginLeft: 16 } }>Total: { total }</span>
             </div>
 
