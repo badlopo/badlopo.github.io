@@ -2,6 +2,8 @@
 
 > If you're a plumber, you're better off learning how to use an ax by chopping down trees with it than unclogging gutters.
 
+---
+
 This is lopo's personal blog!
 
 THAT IS:
@@ -13,4 +15,3 @@ THAT IS:
 ---
 
 - [REPORT AN ISSUE](https://github.com/lopo12123/lopo12123.github.io/issues/new)
-- [MAIL ME](mailto:lopo@zju.edu.cn?subject=Visitor%20from%20badlopo.github.io)

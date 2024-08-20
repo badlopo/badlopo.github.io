@@ -49,6 +49,7 @@ const routes: RouteObject[] = [
             },
             {
                 path: '/me',
+                loader: MePage.loader,
                 element: <MePage/>
             }
         ],
