@@ -2,13 +2,17 @@ import { LoaderFunctionArgs, useLoaderData } from "react-router-dom";
 import { ProseConfig, proseLoader } from "../utils/loader.ts";
 
 const ProsePage = () => {
-    const { title, createTime, modifyTime, content } = useLoaderData() as ProseConfig
+    const { title, created, updated, content } = useLoaderData() as ProseConfig
     return (
         <main className={ 'post-view prose' }>
             <h1>{ title }</h1>
             <div className={ 'meta-section' }>
-                <span>Created at: { createTime.toLocaleDateString() }</span>
-                <span style={ { marginLeft: 16 } }>Last modified: { modifyTime.toLocaleDateString() }</span>
+                <span>Created: { created }</span>
+                {
+                    updated
+                        ? <span style={ { marginLeft: 16 } }>Updated: { updated }</span>
+                        : null
+                }
             </div>
             <div dangerouslySetInnerHTML={ { __html: content } }/>
         </main>
