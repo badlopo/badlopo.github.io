@@ -54,8 +54,8 @@ const rawLoader = async (path: string): Promise<RawConfig | null> => {
 // ===== prose =====
 type ProseConfig = {
     title: string
-    created: string
-    updated?: string
+    created: string | null
+    updated: string | null
     content: string
 }
 
@@ -70,6 +70,7 @@ const proseLoader = async (filename: string): Promise<ProseConfig | null> => {
             return {
                 title: filename,
                 created: 'unknown',
+                updated: null,
                 content: marked.parse(raw) as string,
             }
         }
