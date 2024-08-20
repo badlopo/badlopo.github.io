@@ -54,31 +54,40 @@ const rawLoader = async (path: string): Promise<RawConfig | null> => {
 // ===== prose =====
 type ProseConfig = {
     title: string
-    createTime: Date
-    modifyTime: Date
+    created: string
+    updated?: string
     content: string
 }
 
 const proseLoader = async (filename: string): Promise<ProseConfig | null> => {
     try {
         const raw = await fetch(`/source/prose/${ filename }.md`).then(r => r.text())
-
-        const segments = []
-        let ptr = 0;
-        for (let i = 0; i < raw.length; i++) {
-            if(raw[i] === '\n') {
-                segments.push(raw.slice(ptr, i))
-                ptr = i + 1
-                if(segments.length === 3) break
+        const reg = /^---$\r?\n(?<frontmatter>[\s\S]*?)\r?\n^---$\r?\n/m
+        const matches = raw.match(reg)
+        const frontmatter = matches?.groups?.frontmatter
+        if(!frontmatter) {
+            console.warn('[proseLoader] frontmatter not found:', filename)
+            return {
+                title: filename,
+                created: 'unknown',
+                content: marked.parse(raw) as string,
             }
         }
-        const [ title, cTime, mTime ] = segments
-        const content = raw.slice(ptr)
+
+        const config: Record<string, any> = {}
+        frontmatter.split(/\r?\n/).forEach(line => {
+            // skip comment line
+            if(line.startsWith('#')) return
+
+            const [ key, value ] = line.split(':').map(v => v.trim())
+            if(key && value) config[key.trim()] = value.trim()
+        })
+
         return {
-            title,
-            createTime: new Date(cTime),
-            modifyTime: new Date(mTime),
-            content: marked.parse(content) as string,
+            title: config.title || filename,
+            created: config.created,
+            updated: config.updated,
+            content: marked.parse(raw.slice(matches["0"].length)) as string,
         }
     } catch (err) {
         console.error(`[proseLoader] ${ filename }`, err)
