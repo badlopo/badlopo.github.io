@@ -11,7 +11,13 @@ type PoemArchive = {
 }
 
 type ProseArchive = {
-    // TODO: prose archive
+    date: number
+    total: number
+    items: {
+        title: string
+        created: string
+        updated: string | null
+    }[]
 }
 
 type ProjectArchive = {
