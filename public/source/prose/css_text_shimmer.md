@@ -1,8 +1,12 @@
 ---
 title: CSS 实现文字的 Shimmer 效果
 created: 2024/08/20
-# updated: 2024/08/20
+updated: 2024/08/20
 ---
+
+## 效果
+
+![](/media/css_text_shimmer.gif)
 
 ## CSS
 
@@ -47,7 +51,3 @@ created: 2024/08/20
 ```html
 <span class="shimmer">CSS 实现文字的 Shimmer 效果</span>
 ```
-
-## 效果图
-
-![](/media/css_text_shimmer.gif)
