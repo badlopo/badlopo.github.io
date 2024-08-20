@@ -59,12 +59,9 @@ type ProseConfig = {
     content: string
 }
 
-/**
- * @param path path to the source file
- */
-const proseLoader = async (path: string): Promise<ProseConfig | null> => {
+const proseLoader = async (name: string): Promise<ProseConfig | null> => {
     try {
-        const raw = await fetch(path).then(r => r.text())
+        const raw = await fetch(`/source/prose/${ name }.md`).then(r => r.text())
 
         const segments = []
         let ptr = 0;
@@ -84,7 +81,7 @@ const proseLoader = async (path: string): Promise<ProseConfig | null> => {
             content: marked.parse(content) as string,
         }
     } catch (err) {
-        console.error(`[contentLoader] ${ path }`, err)
+        console.error(`[proseLoader] ${ name }`, err)
         return null
     }
 }
