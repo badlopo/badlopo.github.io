@@ -181,6 +181,11 @@ main {
     }
 }
 
+.index {
+    font-size: 32px;
+    font-style: italic;
+}
+
 .project-gallery {
     display: flex;
     flex-direction: column;

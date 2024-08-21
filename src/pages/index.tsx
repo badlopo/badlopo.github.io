@@ -1,16 +1,13 @@
-import { useLoaderData } from "react-router-dom";
-import { RawConfig, rawLoader } from "../utils/loader.ts";
-
 const IndexPage = () => {
-    const { content } = useLoaderData() as RawConfig
     return (
         <main className={ 'post-view index' }>
-            <div dangerouslySetInnerHTML={ { __html: content } }/>
+            <p>Then am I</p>
+            <p>A happy fly,</p>
+            <p>If I live,</p>
+            <p>Or if I die.</p>
         </main>
     )
 }
-
-IndexPage.loader = () => rawLoader(`/source/poem/the_fly.md`)
 
 export {
     IndexPage,
