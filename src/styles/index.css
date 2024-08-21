@@ -145,7 +145,7 @@ main {
     }
 
     sub {
-        color: #777777;
+        color: #8F959E;
         font-size: 0.8rem;
     }
 
@@ -184,6 +184,7 @@ main {
 .index {
     font-size: 32px;
     font-style: italic;
+    text-align: center;
 }
 
 .project-gallery {
@@ -193,11 +194,18 @@ main {
     }
 
     .links {
+        margin-top: 0.25rem;
         display: flex;
         align-items: center;
 
-        a {
-            font-size: 0.875rem;
+        .icon {
+            margin-right: 0.25rem;
+            color: #8F959E;
+            font-size: 1.25rem;
+
+            &:hover {
+                color: #2337ff;
+            }
         }
     }
 }

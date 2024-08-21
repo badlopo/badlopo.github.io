@@ -29,10 +29,6 @@ type ProjectArchive = {
         description: string
         repository?: string | null
         website?: string | null
-        links?: {
-            title: string
-            url: string
-        }[]
     }[]
 }
 
