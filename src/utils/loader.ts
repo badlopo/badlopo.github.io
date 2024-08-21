@@ -22,7 +22,18 @@ type ProseArchive = {
 }
 
 type ProjectArchive = {
-    // TODO: project archive
+    date: number
+    total: number
+    items: {
+        title: string
+        description: string
+        repository?: string | null
+        website?: string | null
+        links?: {
+            title: string
+            url: string
+        }[]
+    }[]
 }
 
 // overload signature of archiveLoader

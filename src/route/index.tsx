@@ -39,6 +39,7 @@ const routes: RouteObject[] = [
             },
             {
                 path: '/project',
+                loader: ProjectGalleryPage.loader,
                 element: <ProjectGalleryPage/>
             },
             {
