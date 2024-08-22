@@ -5,8 +5,8 @@ type PoemArchive = {
     date: number
     total: number
     items: {
-        title: string
         filename: string
+        title: string
     }[]
 }
 
@@ -14,8 +14,9 @@ type ProseArchive = {
     date: number
     total: number
     items: {
-        title: string
         filename: string
+        title: string
+        category: string
         created: string
         updated: string | null
     }[]

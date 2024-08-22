@@ -1,5 +1,6 @@
 ---
 title: CSS 实现文字的 Shimmer 效果
+category: css
 created: 2024/08/20
 updated: 2024/08/20
 ---
