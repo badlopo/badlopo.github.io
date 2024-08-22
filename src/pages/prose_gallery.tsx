@@ -6,6 +6,12 @@ const ProseGalleryPage = () => {
     return (
         <main className={ 'gallery-view prose-gallery' }>
             <h1>Prose</h1>
+
+            <br/>
+            <blockquote>I mourned for my old life, my once found paradise!</blockquote>
+            <br/>
+            <hr/>
+
             <div className={ 'meta-section' }>
                 <span>Archived: { new Date(date).toLocaleDateString() }</span>
                 <span style={ { marginLeft: 16 } }>Total: { total }</span>
