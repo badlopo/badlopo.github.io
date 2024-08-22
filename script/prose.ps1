@@ -41,8 +41,9 @@ function main
 
         # add the frontmatter to the configuration
         $config.items.Add(@{
-            title = $frontmatter.title
             filename = $item.Name.Replace(".md", "")
+            title = $frontmatter.title
+            category = $frontmatter.category
             created = $frontmatter.created
             updated = $frontmatter.updated
         }) | Out-Null  # omit the output of 'Add' method
