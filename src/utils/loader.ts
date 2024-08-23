@@ -3,7 +3,6 @@ import { marked } from "marked";
 // ===== archive =====
 type PoemArchive = {
     date: number
-    total: number
     items: {
         filename: string
         title: string
@@ -12,7 +11,6 @@ type PoemArchive = {
 
 type ProseArchive = {
     date: number
-    total: number
     items: {
         filename: string
         title: string
@@ -24,7 +22,6 @@ type ProseArchive = {
 
 type ProjectArchive = {
     date: number
-    total: number
     items: {
         title: string
         description: string

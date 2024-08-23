@@ -6,7 +6,6 @@ function main
     $items = Get-ChildItem -Path $source -Filter "*.md"
 
     $config = @{
-        total = $items.Count
         date = [long]((Get-Date) - [datetime]'1970-01-01').TotalMilliseconds
         items = New-Object System.Collections.ArrayList
     };
