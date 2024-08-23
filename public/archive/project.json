@@ -5,6 +5,12 @@
             "title": "badlopo.github.io",
             "description": "My personal website",
             "repository": "https://github.com/badlopo/badlopo.github.io"
+        },
+        {
+            "title": "hush",
+            "description": "在线数字摘要计算",
+            "repository": "https://github.com/lopo12123/hush",
+            "website": "https://lopo12123.github.io/hush/"
         }
     ]
 }

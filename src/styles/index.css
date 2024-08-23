@@ -186,7 +186,11 @@ main {
 }
 
 .gallery-view {
-    a {
+    a.operate-button {
+        text-decoration: none;
+    }
+
+    a:not(.operate-button) {
         color: currentColor;
         text-decoration: underline transparent;
         text-underline-offset: 0.25rem;
@@ -206,6 +210,28 @@ main {
 
         button {
             margin-left: 0.5rem;
+        }
+    }
+
+    .operate-button {
+        margin-right: 0.5rem;
+        padding-inline: 0.5rem;
+        border: solid 1px transparent;
+        border-radius: 0.25rem;
+        background-color: #f9f9f9;
+        color: #4e4e4e;
+        font-size: 0.875rem;
+        cursor: pointer;
+        transition: border-color 0.25s;
+        display: flex;
+        align-items: center;
+
+        span {
+            margin-left: 0.25rem;
+        }
+
+        &:hover {
+            border-color: #4e4e4e;
         }
     }
 }
@@ -228,28 +254,6 @@ main {
     li {
         display: flex;
         align-items: center;
-
-        .category {
-            margin-right: 0.5rem;
-            padding-inline: 0.5rem;
-            border: solid 1px transparent;
-            border-radius: 0.25rem;
-            background-color: #f9f9f9;
-            color: #4e4e4e;
-            font-size: 0.875rem;
-            cursor: pointer;
-            transition: border-color 0.25s;
-            display: flex;
-            align-items: center;
-
-            span {
-                margin-left: 0.25rem;
-            }
-
-            &:hover {
-                border-color: #4e4e4e;
-            }
-        }
     }
 }
 
@@ -263,16 +267,5 @@ main {
         margin-top: 0.25rem;
         display: flex;
         align-items: center;
-
-        .icon {
-            margin-right: 0.25rem;
-            color: #8f959e;
-            font-size: 1.25rem;
-            transition: color 0.25s;
-
-            &:hover {
-                color: #4e4e4e;
-            }
-        }
     }
 }

@@ -41,7 +41,7 @@ const ProseGalleryPage = () => {
                 {
                     items.map(({ filename, title, category }, index) => (
                         <li key={ index }>
-                            <div className={ 'category' } onClick={ () => applyFilter(category) }>
+                            <div className={ 'operate-button' } onClick={ () => applyFilter(category) }>
                                 <IconTag/>
                                 <span>{ category }</span>
                             </div>
