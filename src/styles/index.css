@@ -54,15 +54,29 @@ blockquote {
 }
 
 code {
+    margin-inline: 0.25rem;
+    padding: 2px 5px;
+    background-color: #f0f2f9;
+    border-radius: 2px;
+    font-family: JetBrains Mono, monospace;
+    font-variant-ligatures: none;
+}
+
+pre {
     padding: 0.75rem;
     background-color: #101012;
     border-radius: 2px;
     color: #ffffff;
     font-size: 0.875rem;
     line-height: 1.5rem;
-    font-family: 'JetBrains Mono', monospace !important;
-    font-variant-ligatures: none !important;
-    display: block;
+    overflow: auto;
+
+    code {
+        all: unset;
+
+        font-family: 'JetBrains Mono', monospace !important;
+        font-variant-ligatures: none !important;
+    }
 }
 
 hr {
