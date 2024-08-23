@@ -1,5 +1,5 @@
 ---
-title: 新年的巧克力棒
+title: 新年的巧克力棒 (一道 UOJ 题目)
 category: problem
 created: 2024/04/04
 ---
