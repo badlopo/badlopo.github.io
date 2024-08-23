@@ -182,6 +182,18 @@ main {
             text-decoration: underline #2337ff;
         }
     }
+
+    .filter-section {
+        margin-bottom: 1rem;
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        button {
+            margin-left: 0.5rem;
+        }
+    }
 }
 
 .post-view {

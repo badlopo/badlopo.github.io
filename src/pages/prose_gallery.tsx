@@ -3,11 +3,17 @@ import { Link, LoaderFunctionArgs, useLoaderData, useSearchParams } from "react-
 import { IconTag } from "../assets/icon.tsx";
 
 const ProseGalleryPage = () => {
-    const { date, total, items } = useLoaderData() as ProseArchive
+    const { date, items } = useLoaderData() as ProseArchive
     const [ searchParams, setSearchParams ] = useSearchParams()
     const filter = searchParams.get('category')
 
-    const handleFilter = (category: string) => {
+    const resetFilter = () => {
+        setSearchParams(prev => {
+            prev.delete('category')
+            return prev
+        })
+    }
+    const applyFilter = (category: string) => {
         setSearchParams(prev => {
             prev.set('category', category)
             return prev
@@ -19,16 +25,23 @@ const ProseGalleryPage = () => {
             <h1>Prose</h1>
             <div className={ 'meta-section' }>
                 <span>Archived: { new Date(date).toLocaleDateString() }</span>
-                <span style={ { marginLeft: 16 } }>Total: { total }</span>
+                <span style={ { marginLeft: 16 } }>Total: { items.length }</span>
             </div>
 
-            {/* TODO: show filter & clear button */ }
+            {
+                !!filter ? (
+                    <div className={ 'filter-section' }>
+                        <span>Category: <i>{ filter }</i></span>
+                        <button onClick={ resetFilter }>Reset</button>
+                    </div>
+                ) : null
+            }
 
             <ul>
                 {
                     items.map(({ filename, title, category }, index) => (
                         <li key={ index }>
-                            <div className={ 'category' } onClick={ () => handleFilter(category) }>
+                            <div className={ 'category' } onClick={ () => applyFilter(category) }>
                                 <IconTag/>
                                 <span>{ category }</span>
                             </div>
