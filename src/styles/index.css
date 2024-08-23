@@ -174,11 +174,12 @@ main {
 .gallery-view {
     a {
         color: currentColor;
-        text-decoration: none;
+        text-decoration: underline transparent;
+        text-underline-offset: 0.25rem;
+        transition: text-decoration 0.25s;
 
         &:hover {
             text-decoration: underline #2337ff;
-            text-underline-offset: 0.25rem;
         }
     }
 }
