@@ -4,7 +4,8 @@
         {
             "title": "badlopo.github.io",
             "description": "My personal website",
-            "repository": "https://github.com/badlopo/badlopo.github.io"
+            "repository": "https://github.com/badlopo/badlopo.github.io",
+            "prose": "svg_fill_rule"
         },
         {
             "title": "hush",

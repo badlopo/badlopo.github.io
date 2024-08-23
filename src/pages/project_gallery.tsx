@@ -1,6 +1,6 @@
 import { archiveLoader, ProjectArchive } from "../utils/loader.ts";
 import { Link, useLoaderData } from "react-router-dom";
-import { IconRepository, IconWebsite } from "../assets/icon.tsx";
+import { IconProse, IconRepository, IconWebsite } from "../assets/icon.tsx";
 
 const ProjectGalleryPage = () => {
     const { date, items } = useLoaderData() as ProjectArchive
@@ -14,7 +14,7 @@ const ProjectGalleryPage = () => {
 
             <ul>
                 {
-                    items.map(({ title, description, repository, website }, index) => (
+                    items.map(({ title, description, repository, website, prose }, index) => (
                         <li key={ index }>
                             <div>{ title }</div>
                             <div className={ 'description' }>{ description }</div>
@@ -32,6 +32,14 @@ const ProjectGalleryPage = () => {
                                         <Link className={ 'operate-button' } to={ website } target={ '_blank' }>
                                             <IconWebsite/>
                                             <span>website</span>
+                                        </Link>
+                                    ) : null
+                                }
+                                {
+                                    prose ? (
+                                        <Link className={ 'operate-button' } to={ `/prose/${ prose }` }>
+                                            <IconProse/>
+                                            <span>prose</span>
                                         </Link>
                                     ) : null
                                 }
