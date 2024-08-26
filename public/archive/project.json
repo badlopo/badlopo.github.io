@@ -12,6 +12,11 @@
             "description": "在线数字摘要计算",
             "repository": "https://github.com/lopo12123/hush",
             "website": "https://lopo12123.github.io/hush/"
+        },
+        {
+            "title": "bad_fl",
+            "description": "A flutter package, including components, implementations, helper functions and extensions. Designed to provide a simple way to develop with flutter.",
+            "repository": "https://github.com/badlopo/bad_fl"
         }
     ]
 }
