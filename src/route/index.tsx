@@ -8,6 +8,7 @@ import { PoemPage } from "../pages/poem.tsx";
 import { ProjectGalleryPage } from "../pages/project_gallery.tsx";
 import { AboutPage } from "../pages/about.tsx";
 import { MePage } from "../pages/me.tsx";
+import { HiddenPage } from "../pages/hidden.tsx";
 
 const routes: RouteObject[] = [
     {
@@ -51,6 +52,10 @@ const routes: RouteObject[] = [
                 path: '/me',
                 loader: MePage.loader,
                 element: <MePage/>
+            },
+            {
+                path: '/hidden',
+                element: <HiddenPage/>
             }
         ],
     },
