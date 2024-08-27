@@ -1,13 +1,50 @@
 import { CSSProperties } from "react";
 
 type IconProps = {
-    className?: string;
-    style?: CSSProperties;
+    className?: string
+    style?: CSSProperties
+    onClick?: VoidFunction
 }
 
-const IconProse = ({ className, style }: IconProps) => {
+const IconMusic = ({ className, style, onClick }: IconProps) => {
     return (
-        <svg className={ className } style={ style }
+        <svg className={ className } style={ style } onClick={ onClick }
+             viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"
+             width="1em" height="1em" fill="currentColor">
+            <path
+                d="M742.3 100.3l-25.6 44.3c126.2 73 204.7 208.9 204.7 354.6 0 225.7-183.6 409.3-409.3 409.3S102.8 724.8 102.8 499.1c0-145.7 78.4-281.5 204.7-354.6l-25.6-44.3c-142 82.1-230.2 235-230.2 398.8 0 253.9 206.6 460.5 460.5 460.5S972.6 753 972.6 499.1c0-163.9-88.2-316.7-230.3-398.8z"/>
+            <path
+                d="M464.2 437l-25.6-44.3c-45.3 26.2-73.5 75-73.5 127.3 0 81 65.9 147 147 147s147-65.9 147-147v-6.3L451.2 115.4h164V64.2H366.8l241 461.8c-3.1 50.1-44.8 89.9-95.6 89.9-52.8 0-95.8-43-95.8-95.8-0.1-34.1 18.2-66 47.8-83.1z"/>
+        </svg>
+    )
+}
+
+const IconPause = ({ className, style, onClick }: IconProps) => {
+    return (
+        <svg className={ className } style={ style } onClick={ onClick }
+             viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"
+             width="1em" height="1em" fill="currentColor">
+            <path
+                d="M924.41112627 512c0 20.62055582-11.78317456 38.29531837-26.51214381 47.13269964l0 0L182.0710998 974.48961922l0 0c-8.83738127 5.89158797-17.67476253 8.83738127-26.51214379 8.83738125-29.45793709 0-55.97008091-23.56635051-55.97008091-55.9700809L99.58887373 96.64308043c0-29.45793709 23.56635051-55.97008091 55.97008089-55.9700809 8.83738127 0 20.62055582 2.9457933 26.51214381 8.83738125l0 0 715.82788267 415.35691958 0 0C912.62795033 473.70468163 924.41112627 491.37944418 924.41112627 512z"/>
+        </svg>
+    )
+}
+
+const IconPlay = ({ className, style, onClick }: IconProps) => {
+    return (
+        <svg className={ className } style={ style } onClick={ onClick }
+             viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"
+             width="1em" height="1em" fill="currentColor">
+            <path
+                d="M291.06502644 33.30866196c61.00974531 0 110.46814958 49.45840426 110.46814958 110.46682398v736.44902812c0 61.00974531-49.45840426 110.46682398-110.46814958 110.46682398-61.00841971 0-110.46682398-49.45840426-110.46682397-110.46682398V143.77548594c0-61.00974531 49.45840426-110.46682398 110.46682397-110.46682398z m441.86994712 0c61.00841971 0 110.46682398 49.45840426 110.46682397 110.46682398v736.44902812c0 61.00974531-49.45840426 110.46682398-110.46682397 110.46682398-61.00974531 0-110.46814958-49.45840426-110.46814958-110.46682398V143.77548594c0-61.00974531 49.45840426-110.46682398 110.46814958-110.46682398z"
+                fill="#323233"/>
+        </svg>
+    )
+}
+
+const IconProse = ({ className, style, onClick }: IconProps) => {
+    return (
+        <svg className={ className } style={ style } onClick={ onClick }
              viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"
              width="1em" height="1em" fill="currentColor">
             <path
@@ -18,9 +55,9 @@ const IconProse = ({ className, style }: IconProps) => {
     )
 }
 
-const IconRepository = ({ className, style }: IconProps) => {
+const IconRepository = ({ className, style, onClick }: IconProps) => {
     return (
-        <svg className={ className } style={ style }
+        <svg className={ className } style={ style } onClick={ onClick }
              viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"
              width="1em" height="1em" fill="currentColor">
             <path
@@ -29,9 +66,9 @@ const IconRepository = ({ className, style }: IconProps) => {
     )
 }
 
-const IconTag = ({ className, style }: IconProps) => {
+const IconTag = ({ className, style, onClick }: IconProps) => {
     return (
-        <svg className={ className } style={ style }
+        <svg className={ className } style={ style } onClick={ onClick }
              viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"
              width="1em" height="1em" fill="currentColor">
             <path
@@ -42,9 +79,9 @@ const IconTag = ({ className, style }: IconProps) => {
     )
 }
 
-const IconWebsite = ({ className, style }: IconProps) => {
+const IconWebsite = ({ className, style, onClick }: IconProps) => {
     return (
-        <svg className={ className } style={ style }
+        <svg className={ className } style={ style } onClick={ onClick }
              viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"
              width="1em" height="1em" fill="currentColor">
             <path
@@ -54,6 +91,9 @@ const IconWebsite = ({ className, style }: IconProps) => {
 }
 
 export {
+    IconMusic,
+    IconPause,
+    IconPlay,
     IconProse,
     IconRepository,
     IconTag,

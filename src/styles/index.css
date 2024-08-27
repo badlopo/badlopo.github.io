@@ -152,6 +152,18 @@ nav {
             background-color: #2337FF;
         }
     }
+
+    .player {
+        font-size: 14px;
+        text-decoration: underline;
+        text-underline-offset: 4px;
+        display: flex;
+        align-items: center;
+
+        span {
+            margin-left: 4px;
+        }
+    }
 }
 
 main {
