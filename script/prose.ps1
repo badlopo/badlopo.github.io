@@ -5,10 +5,8 @@ function main
     $target = Join-Path -Path $public -ChildPath "archive\prose.json"
     $items = Get-ChildItem -Path $source -Filter "*.md"
 
-    $config = @{
-        date = [long]((Get-Date) - [datetime]'1970-01-01').TotalMilliseconds
-        items = New-Object System.Collections.ArrayList
-    };
+    # create an array list to store the configuration items
+    $configItems = New-Object System.Collections.ArrayList
 
     foreach ($item in $items)
     {
@@ -39,7 +37,7 @@ function main
         $reader.Close()
 
         # add the frontmatter to the configuration
-        $config.items.Add(@{
+        $configItems.Add(@{
             filename = $item.Name.Replace(".md", "")
             title = $frontmatter.title
             category = $frontmatter.category
@@ -47,6 +45,12 @@ function main
             updated = $frontmatter.updated
         }) | Out-Null  # omit the output of 'Add' method
     }
+
+    $config = @{
+        date = [long]((Get-Date) - [datetime]'1970-01-01').TotalMilliseconds
+        # sort the configuration items by the 'created' date in descending order
+        items = $configItems | Sort-Object { [datetime]$_."created" } -Descending
+    };
 
     # convert the configuration to JSON format
     $json = ConvertTo-Json $config -Depth 5 -Compress
