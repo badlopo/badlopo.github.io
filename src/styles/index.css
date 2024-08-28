@@ -131,6 +131,21 @@ nav {
     display: flex;
     align-items: center;
 
+    .navbar {
+        margin: 0 24px;
+        flex: 1;
+        overflow: auto hidden;
+
+        &::-webkit-scrollbar {
+            height: 4px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: #ccc;
+            border-radius: 2px;
+        }
+    }
+
     a {
         position: relative;
         height: 78px;
@@ -141,15 +156,19 @@ nav {
         display: inline-flex;
         align-items: center;
 
-        &.active::before {
-            content: "";
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 100%;
-            height: 4px;
-            border-radius: 2px;
-            background-color: #2337FF;
+        &.active {
+            color: #2337ff;
+
+            &::before {
+                content: "";
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                height: 4px;
+                border-radius: 2px;
+                background-color: #2337FF;
+            }
         }
     }
 

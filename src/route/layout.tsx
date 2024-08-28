@@ -7,17 +7,17 @@ const RootLayout = () => {
     return (
         <>
             <nav>
-                <Link style={ { marginRight: 36 } } to={ '/' }>
+                <Link to={ '/' }>
                     <img width={ 75 } height={ 36 } src="/lopo_animate.svg" alt=""/>
                 </Link>
 
-                <NavLink to={ '/prose' }>Prose</NavLink>
-                <NavLink to={ '/poem' }>Poem</NavLink>
-                <NavLink to={ '/project' }>Project</NavLink>
-                <NavLink to={ '/about' }>About</NavLink>
-                <NavLink to={ '/me' }>Me</NavLink>
-
-                <i style={ { flex: 1 } }/>
+                <div className={'navbar'}>
+                    <NavLink to={ '/prose' }>Prose</NavLink>
+                    <NavLink to={ '/poem' }>Poem</NavLink>
+                    <NavLink to={ '/project' }>Project</NavLink>
+                    <NavLink to={ '/about' }>About</NavLink>
+                    <NavLink to={ '/me' }>Me</NavLink>
+                </div>
 
                 <div className={ 'player' }>
                     <IconMusic/>
