@@ -266,6 +266,19 @@ main {
     li {
         display: flex;
         align-items: center;
+
+        .title {
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+
+        .date {
+            margin-left: 8px;
+            color: #8f959e;
+            font-size: 13px;
+            line-height: 13px;
+        }
     }
 }
 

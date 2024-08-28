@@ -39,13 +39,14 @@ const ProseGalleryPage = () => {
 
             <ul>
                 {
-                    items.map(({ filename, title, category }, index) => (
+                    items.map(({ filename, title, category, created }, index) => (
                         <li key={ index }>
                             <div className={ 'operate-button' } onClick={ () => applyFilter(category) }>
                                 <IconTag/>
                                 <span>{ category }</span>
                             </div>
-                            <Link to={ `/prose/${ filename }` }>{ title }</Link>
+                            <Link className={ 'title' } title={ title } to={ `/prose/${ filename }` }>{ title }</Link>
+                            <span className={ 'date' }>{ created }</span>
                         </li>
                     ))
                 }
