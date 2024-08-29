@@ -10,7 +10,7 @@ const RootLayout = () => {
 
                 <div className={ 'navbar' }>
                     <NavLink to={ '/prose' }>Prose</NavLink>
-                    <NavLink to={ '/poem' }>Poem</NavLink>
+                    {/*<NavLink to={ '/poem' }>Poem</NavLink>*/ }
                     <NavLink to={ '/project' }>Project</NavLink>
                     <NavLink to={ '/about' }>About</NavLink>
                     <NavLink to={ '/me' }>Me</NavLink>
