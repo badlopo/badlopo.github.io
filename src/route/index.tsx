@@ -13,7 +13,6 @@ import { HiddenPage } from "../pages/hidden.tsx";
 const routes: RouteObject[] = [
     {
         element: <RootLayout/>,
-        loader: RootLayout.loader,
         children: [
             {
                 path: '/',
