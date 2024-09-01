@@ -291,6 +291,10 @@ main {
             border-color: #4e4e4e;
         }
     }
+
+    li:not(:first-child) {
+        margin-top: 0.25rem;
+    }
 }
 
 .post-view {
