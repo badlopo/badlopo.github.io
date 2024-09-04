@@ -3,7 +3,7 @@ import { Link, LoaderFunctionArgs, useLoaderData, useSearchParams } from "react-
 import { IconTag } from "../assets/icon.tsx";
 
 const ProseGalleryPage = () => {
-    const { date, items } = useLoaderData() as ProseArchive
+    const { date, items, statistics } = useLoaderData() as ProseArchive
     const [ searchParams, setSearchParams ] = useSearchParams()
     const filter = searchParams.get('category')
 
@@ -25,7 +25,12 @@ const ProseGalleryPage = () => {
             <h1>Prose</h1>
             <div className={ 'meta-section' }>
                 <span>Archived: { new Date(date).toLocaleDateString() }</span>
-                <span style={ { marginLeft: 16 } }>Total: { items.length }</span>
+                <span style={ { marginLeft: 16 } }
+                      data-tooltip-id={ 'prose-statistics' }
+                      data-tooltip-content={ JSON.stringify(statistics) }
+                      data-tooltip-hidden={ !!filter }>
+                    Total: { items.length }
+                </span>
             </div>
 
             {
@@ -56,11 +61,11 @@ const ProseGalleryPage = () => {
 }
 
 ProseGalleryPage.loader = async ({ request }: LoaderFunctionArgs) => {
-    const proses = await archiveLoader('prose')
+    const proses = (await archiveLoader('prose'))!
 
     const url = new URL(request.url)
     const filter = url.searchParams.get('category')
-    if(!!filter && !!proses) {
+    if(!!filter) {
         proses.items = proses.items.filter(prose => prose.category === filter)
     }
 

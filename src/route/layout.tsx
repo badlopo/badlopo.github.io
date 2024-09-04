@@ -4,7 +4,11 @@ import { Tooltip } from "react-tooltip";
 const RootLayout = () => {
     return (
         <>
-            <Tooltip/>
+            <Tooltip
+                id={ 'prose-statistics' }
+                render={ () => {
+                    return 'TODO: statistics'
+                } }/>
 
             <nav>
                 <Link to={ '/' }>
