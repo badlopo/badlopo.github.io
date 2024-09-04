@@ -48,6 +48,7 @@ function main
 
     $config = @{
         date = [long]((Get-Date) - [datetime]'Thu, 01 Jan 1970 00:00:00 GMT').TotalMilliseconds
+        # TODO: add 'statistics'
         # sort the configuration items by the 'created' date in descending order
         items = $configItems | Sort-Object { [datetime]$_."created" } -Descending
     };
