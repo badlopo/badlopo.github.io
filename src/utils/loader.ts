@@ -11,6 +11,7 @@ type PoemArchive = {
 
 type ProseArchive = {
     date: number
+    statistics: { [category: string]: number }
     items: {
         filename: string
         title: string
