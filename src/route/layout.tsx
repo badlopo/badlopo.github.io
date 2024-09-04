@@ -1,8 +1,11 @@
 import { Link, NavLink, Outlet } from "react-router-dom";
+import { Tooltip } from "react-tooltip";
 
 const RootLayout = () => {
     return (
         <>
+            <Tooltip/>
+
             <nav>
                 <Link to={ '/' }>
                     <img width={ 75 } height={ 36 } src="/lopo_animate.svg" alt=""/>
