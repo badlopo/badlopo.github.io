@@ -1,11 +1,14 @@
 import { archiveLoader, ProseArchive } from "../utils/loader.ts";
 import { Link, LoaderFunctionArgs, useLoaderData, useSearchParams } from "react-router-dom";
 import { IconTag } from "../assets/icon.tsx";
+import { useState } from "react";
 
 const ProseGalleryPage = () => {
     const { date, items, statistics } = useLoaderData() as ProseArchive
     const [ searchParams, setSearchParams ] = useSearchParams()
     const filter = searchParams.get('category')
+    const [ _showStatistics, setShowStatistics ] = useState<boolean>(false)
+    const showStatistics = _showStatistics && !filter
 
     const resetFilter = () => {
         setSearchParams(prev => {
@@ -25,12 +28,15 @@ const ProseGalleryPage = () => {
             <h1>Prose</h1>
             <div className={ 'meta-section' }>
                 <span>Archived: { new Date(date).toLocaleDateString() }</span>
-                <span style={ { marginLeft: 16 } }
-                      data-tooltip-id={ 'prose-statistics' }
-                      data-tooltip-content={ JSON.stringify(statistics) }
-                      data-tooltip-hidden={ !!filter }>
-                    Total: { items.length }
-                </span>
+                <span style={ { marginLeft: 16 } }>Total: { items.length }</span>
+                {
+                    !!filter ? null : (
+                        <button style={ { marginLeft: 16 } }
+                                onClick={ () => setShowStatistics(v => !v) }>
+                            Statistics
+                        </button>
+                    )
+                }
             </div>
 
             {
@@ -42,10 +48,27 @@ const ProseGalleryPage = () => {
                 ) : null
             }
 
+            {
+                showStatistics ? (
+                    <ul className={ 'statistic-block' }>
+                        {
+                            Object.entries(statistics).map(([ category, count ]) => {
+                                return (
+                                    <li key={ category } className={ 'statistic-item' }>
+                                        <span className={ 'title' }>{ category }: </span>
+                                        <span>{ count }</span>
+                                    </li>
+                                )
+                            })
+                        }
+                    </ul>
+                ) : null
+            }
+
             <ul>
                 {
                     items.map(({ filename, title, category, created }, index) => (
-                        <li key={ index }>
+                        <li className={ 'prose-item' } key={ index }>
                             <div className={ 'operate-button' } onClick={ () => applyFilter(category) }>
                                 <IconTag/>
                                 <span>{ category }</span>

@@ -325,7 +325,19 @@ main {
 }
 
 .prose-gallery {
-    li {
+    .statistic-block {
+        margin-bottom: 1rem;
+        padding: 0.5rem 1rem;
+        background-color: #f0f2f9;
+
+        .statistic-item {
+            .title {
+                font-variant-caps: small-caps;
+            }
+        }
+    }
+
+    .prose-item {
         display: flex;
         align-items: center;
 
