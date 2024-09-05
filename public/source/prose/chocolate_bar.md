@@ -1,6 +1,6 @@
 ---
 title: 新年的巧克力棒 (一道 UOJ 题目)
-category: problem
+category: question set
 created: 2024/04/04
 ---
 
