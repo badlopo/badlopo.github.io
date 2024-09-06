@@ -348,6 +348,12 @@ main {
         background-color: #f0f2f9;
 
         .statistic-item {
+            cursor: pointer;
+
+            &:hover {
+                background-color: #e5e9f0;
+            }
+
             .title {
                 font-variant-caps: small-caps;
             }

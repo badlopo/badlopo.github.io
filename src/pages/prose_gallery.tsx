@@ -54,7 +54,8 @@ const ProseGalleryPage = () => {
                         {
                             Object.entries(statistics).map(([ category, count ]) => {
                                 return (
-                                    <li key={ category } className={ 'statistic-item' }>
+                                    <li key={ category } className={ 'statistic-item' }
+                                        onClick={ () => applyFilter(category) }>
                                         <span className={ 'title' }>{ category }: </span>
                                         <span>{ count }</span>
                                     </li>
