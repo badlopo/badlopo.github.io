@@ -9,7 +9,9 @@
         "build": "tsc -b && vite build"
     },
     "dependencies": {
+        "highlight.js": "^11.10.0",
         "marked": "^14.0.0",
+        "marked-highlight": "^2.1.4",
         "react": "^18.3.1",
         "react-dom": "^18.3.1",
         "react-router-dom": "^6.26.0",

@@ -1,3 +1,4 @@
+import "highlight.js/styles/github.css"
 import './styles/font.css'
 import './styles/index.css'
 

@@ -593,7 +593,9 @@ __metadata:
     "@types/react": ^18.3.3
     "@types/react-dom": ^18.3.0
     "@vitejs/plugin-react-swc": ^3.5.0
+    highlight.js: ^11.10.0
     marked: ^14.0.0
+    marked-highlight: ^2.1.4
     react: ^18.3.1
     react-dom: ^18.3.1
     react-router-dom: ^6.26.0
@@ -907,6 +909,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"highlight.js@npm:^11.10.0":
+  version: 11.10.0
+  resolution: "highlight.js@npm:11.10.0"
+  checksum: 65f89966a164f283a3083ce90f65d6f78c5d91c2ab753c70dc2f1d117ee8fe982ed428e51e663c37c562c88b7dad18cdd84769e522f0f8764462c448017c6dfa
+  languageName: node
+  linkType: hard
+
 "http-cache-semantics@npm:^4.1.1":
   version: 4.1.1
   resolution: "http-cache-semantics@npm:4.1.1"
@@ -1057,6 +1066,15 @@ __metadata:
     promise-retry: ^2.0.1
     ssri: ^10.0.0
   checksum: 5c9fad695579b79488fa100da05777213dd9365222f85e4757630f8dd2a21a79ddd3206c78cfd6f9b37346819681782b67900ac847a57cf04190f52dda5343fd
+  languageName: node
+  linkType: hard
+
+"marked-highlight@npm:^2.1.4":
+  version: 2.1.4
+  resolution: "marked-highlight@npm:2.1.4"
+  peerDependencies:
+    marked: ">=4 <15"
+  checksum: 7478c44df03366694f7c57e9282299744b27088a30992bb72b3d96abe22a637834213e84a0cbcbe05523e4fdce77db75f2e964d90202abcb5a04a6150a488cb8
   languageName: node
   linkType: hard
 
