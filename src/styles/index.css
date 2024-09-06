@@ -58,14 +58,15 @@ blockquote {
 code:not(.hljs) {
     margin-inline: 0.25rem;
     padding: 2px 5px;
-    background-color: #f0f2f9;
     border-radius: 2px;
+    background-color: #f0f2f9;
     font-family: JetBrains Mono, monospace;
     font-variant-ligatures: none;
 }
 
 pre {
     code {
+        margin-bottom: 1rem;
         border-radius: 0.25rem;
         box-shadow: 0 0 6px #0000001F;
         font-family: 'JetBrains Mono', monospace !important;
@@ -121,6 +122,10 @@ ol {
             left: 0;
         }
     }
+}
+
+li:not(:first-child) {
+    margin-top: 0.5rem;
 }
 
 table {
