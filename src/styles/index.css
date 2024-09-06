@@ -114,6 +114,23 @@ ul {
     }
 }
 
+ol {
+    list-style: none;
+    counter-reset: ol-counter;
+
+    li {
+        position: relative;
+        padding-left: 1rem;
+        counter-increment: ol-counter;
+
+        &::before {
+            content: counter(ol-counter) ".";
+            position: absolute;
+            left: 0;
+        }
+    }
+}
+
 table {
     /* github table style */
     border-color: #808080;
