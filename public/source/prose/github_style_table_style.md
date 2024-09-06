@@ -1,7 +1,7 @@
 ﻿---
 title: GitHub-style Table style
 category: css
-created: 2024/09/06
+created: 2024/08/29
 ---
 
 GitHub 风格的表格样式
