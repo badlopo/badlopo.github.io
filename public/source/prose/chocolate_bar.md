@@ -1,10 +1,10 @@
 ---
-title: 新年的巧克力棒 (一道 UOJ 题目)
-category: question set
+title: 新年的巧克力棒
+category: problem set
 created: 2024/04/04
 ---
 
-## 题目
+## 问题
 
 马上就要到羊年了, 羊村一片欢腾, 懒羊羊则懒洋洋地躺在草坪上吃新年的巧克力棒.
 
