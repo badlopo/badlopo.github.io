@@ -37,29 +37,24 @@ img {
     -webkit-user-drag: none;
 }
 
-blockquote {
-    position: relative;
-    padding: 0 0 0 20px;
-    margin: 0;
-    font-size: 1.25em;
+h2 {
+    padding-bottom: 0.5rem;
+    border-bottom: solid 1px #d1d9e0b3;
+    font-size: 1.5rem;
+}
 
-    &:before {
-        content: "";
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 4px;
-        height: 100%;
-        border-radius: 2px;
-        background-color: #2337ff;
-    }
+blockquote {
+    padding: 0 1rem;
+    border-left: solid 0.25rem #d1d9e0;
+    color: #59636e;
 }
 
 code:not(.hljs) {
     margin-inline: 0.25rem;
-    padding: 2px 5px;
-    border-radius: 2px;
-    background-color: #f0f2f9;
+    padding: 0.2em 0.4em;
+    border-radius: 6px;
+    background-color: #818b981f;
+    font-size: 0.875rem;
     font-family: JetBrains Mono, monospace;
     font-variant-ligatures: none;
 }
@@ -111,7 +106,7 @@ ol {
     list-style: none;
     counter-reset: ol-counter;
 
-    li {
+    > li {
         position: relative;
         padding-left: 1rem;
         counter-increment: ol-counter;
@@ -257,7 +252,7 @@ main {
         font-size: 0.8rem;
     }
 
-    blockquote, ul {
+    blockquote, ul, ol {
         white-space: initial;
     }
 
