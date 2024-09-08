@@ -5,7 +5,6 @@ import { ProseGalleryPage } from "../pages/prose_gallery.tsx";
 import { ProsePage } from "../pages/prose.tsx";
 import { PoemGalleryPage } from "../pages/poem_gallery.tsx";
 import { PoemPage } from "../pages/poem.tsx";
-import { ProjectGalleryPage } from "../pages/project_gallery.tsx";
 import { AboutPage } from "../pages/about.tsx";
 import { MePage } from "../pages/me.tsx";
 import { HiddenPage } from "../pages/hidden.tsx";
@@ -37,11 +36,6 @@ const routes: RouteObject[] = [
                 path: '/poem/:filename',
                 loader: PoemPage.loader,
                 element: <PoemPage/>
-            },
-            {
-                path: '/project',
-                loader: ProjectGalleryPage.loader,
-                element: <ProjectGalleryPage/>
             },
             {
                 path: '/about',

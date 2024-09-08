@@ -33,24 +33,11 @@ type ProseArchive = {
     }[]
 }
 
-type ProjectArchive = {
-    date: number
-    items: {
-        title: string
-        description: string
-        repository?: string | null
-        website?: string | null
-        prose?: string | null
-    }[]
-}
-
 // overload signature of archiveLoader
 interface ArchiveLoader {
     (category: 'poem'): Promise<PoemArchive | null>
 
     (category: 'prose'): Promise<ProseArchive | null>
-
-    (category: 'project'): Promise<ProjectArchive | null>
 }
 
 const archiveLoader: ArchiveLoader = async (category) => {
@@ -125,7 +112,6 @@ const proseLoader = async (filename: string): Promise<ProseConfig | null> => {
 export type {
     PoemArchive,
     ProseArchive,
-    ProjectArchive,
     RawConfig,
     ProseConfig,
 }
