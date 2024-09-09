@@ -17,7 +17,7 @@ const marked = new Marked(
                 if(counter[depth - 2] === undefined) counter[depth - 2] = 0
                 counter[depth - 2] += 1
                 const id = `heading_${ depth }_${ counter[depth - 2] }`
-                return `<h${ depth } id="${ id }">${ text }</h${ depth }>`
+                return `<h${ depth } id="${ id }" class="heading-anchor">${ text }</h${ depth }>`
             }
         }
     }
@@ -76,11 +76,8 @@ const rawLoader = async (path: string): Promise<RawConfig | null> => {
 
 // ===== prose =====
 type ProseHeading = {
-    /**
-     * level of heading, starts from 2
-     */
-    level: number
     id: string
+    indent: number
     text: string
 }
 
@@ -92,7 +89,7 @@ type ProseConfig = {
      * html content of markdown
      */
     content: string
-    headings: ProseHeading[]
+    headings: ProseHeading[] | null
 }
 
 const proseLoader = async (filename: string): Promise<ProseConfig | null> => {
@@ -111,7 +108,7 @@ const proseLoader = async (filename: string): Promise<ProseConfig | null> => {
                 created: 'unknown',
                 updated: null,
                 content: marked.parse(raw) as string,
-                headings: [],
+                headings: null,
             }
         }
 
@@ -134,8 +131,8 @@ const proseLoader = async (filename: string): Promise<ProseConfig | null> => {
             if(counter[depth - 2] === undefined) counter[depth - 2] = 0
             counter[depth - 2] += 1
             headings.push({
-                level: depth,
                 id: `heading_${ depth }_${ counter[depth - 2] }`,
+                indent: depth - 2,
                 text,
             })
         }
@@ -145,7 +142,7 @@ const proseLoader = async (filename: string): Promise<ProseConfig | null> => {
             created: config.created,
             updated: config.updated,
             content: marked.parse(body) as string,
-            headings,
+            headings: headings.length > 0 ? headings : null,
         } satisfies ProseConfig
     } catch (err) {
         console.error(`[proseLoader] ${ filename }`, err)
