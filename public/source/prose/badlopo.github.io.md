@@ -8,5 +8,5 @@ project of this website
 
 ## References
 
-- [badlopo.github.io](https://badlopo.github.io)
 - [repository](https://github.com/badlopo/badlopo.github.io)
+- [website](https://badlopo.github.io)
