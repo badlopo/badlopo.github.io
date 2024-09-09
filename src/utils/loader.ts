@@ -13,14 +13,6 @@ const marked = new Marked(
 );
 
 // ===== archive =====
-type PoemArchive = {
-    date: number
-    items: {
-        filename: string
-        title: string
-    }[]
-}
-
 type ProseArchive = {
     date: number
     statistics: { [category: string]: number }
@@ -35,8 +27,6 @@ type ProseArchive = {
 
 // overload signature of archiveLoader
 interface ArchiveLoader {
-    (category: 'poem'): Promise<PoemArchive | null>
-
     (category: 'prose'): Promise<ProseArchive | null>
 }
 
@@ -59,7 +49,7 @@ const rawLoader = async (path: string): Promise<RawConfig | null> => {
         const raw = await fetch(path).then(r => r.text())
         return { content: marked.parse(raw) as string }
     } catch (err) {
-        console.error(`[poemLoader] ${ path }`, err)
+        console.error(`[rawLoader] ${ path }`, err)
         return null
     }
 }
@@ -110,7 +100,6 @@ const proseLoader = async (filename: string): Promise<ProseConfig | null> => {
 }
 
 export type {
-    PoemArchive,
     ProseArchive,
     RawConfig,
     ProseConfig,
