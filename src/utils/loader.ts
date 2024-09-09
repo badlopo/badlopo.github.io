@@ -1,7 +1,8 @@
-import { Marked } from "marked";
+import { Marked, Tokens } from "marked";
 import { markedHighlight } from "marked-highlight";
 import hljs from "highlight.js";
 
+let counter: number[] = []
 const marked = new Marked(
     markedHighlight({
         langPrefix: 'hljs language-',
@@ -9,8 +10,27 @@ const marked = new Marked(
             const language = hljs.getLanguage(lang) ? lang : 'plaintext';
             return hljs.highlight(code, { language }).value;
         }
-    })
+    }),
+    {
+        renderer: {
+            heading({ depth, text }: Tokens.Heading): string {
+                if(counter[depth - 2] === undefined) counter[depth - 2] = 0
+                counter[depth - 2] += 1
+                const id = `heading_${ depth }_${ counter[depth - 2] }`
+                return `<h${ depth } id="${ id }">${ text }</h${ depth }>`
+            }
+        }
+    }
 );
+// hold a reference to original parse method
+const parse = marked.parse
+// @ts-ignore override parse method of marked to inject custom logic
+marked.parse = (...args) => {
+    // reset counter
+    counter = []
+    console.log('[marked.parse] counter reset')
+    return parse(...args)
+}
 
 // ===== archive =====
 type ProseArchive = {
@@ -55,11 +75,24 @@ const rawLoader = async (path: string): Promise<RawConfig | null> => {
 }
 
 // ===== prose =====
+type ProseHeading = {
+    /**
+     * level of heading, starts from 2
+     */
+    level: number
+    id: string
+    text: string
+}
+
 type ProseConfig = {
     title: string
     created: string | null
     updated: string | null
+    /**
+     * html content of markdown
+     */
     content: string
+    headings: ProseHeading[]
 }
 
 const proseLoader = async (filename: string): Promise<ProseConfig | null> => {
@@ -68,6 +101,9 @@ const proseLoader = async (filename: string): Promise<ProseConfig | null> => {
         const reg = /^---$\r?\n(?<frontmatter>[\s\S]*?)\r?\n^---$\r?\n/m
         const matches = raw.match(reg)
         const frontmatter = matches?.groups?.frontmatter
+
+        // generally speaking, this condition should not be met,
+        // but we still need to handle it
         if(!frontmatter) {
             console.warn('[proseLoader] frontmatter not found:', filename)
             return {
@@ -75,6 +111,7 @@ const proseLoader = async (filename: string): Promise<ProseConfig | null> => {
                 created: 'unknown',
                 updated: null,
                 content: marked.parse(raw) as string,
+                headings: [],
             }
         }
 
@@ -87,12 +124,29 @@ const proseLoader = async (filename: string): Promise<ProseConfig | null> => {
             if(key && value) config[key.trim()] = value.trim()
         })
 
+        // markdown main body
+        const body = raw.slice(matches["0"].length)
+
+        const headingTokens = marked.lexer(body).filter(x => x.type === 'heading') as Tokens.Heading[]
+        const headings: ProseHeading[] = []
+        const counter: number[] = []
+        for (const { depth, text } of headingTokens) {
+            if(counter[depth - 2] === undefined) counter[depth - 2] = 0
+            counter[depth - 2] += 1
+            headings.push({
+                level: depth,
+                id: `heading_${ depth }_${ counter[depth - 2] }`,
+                text,
+            })
+        }
+
         return {
             title: config.title || filename,
             created: config.created,
             updated: config.updated,
-            content: marked.parse(raw.slice(matches["0"].length)) as string,
-        }
+            content: marked.parse(body) as string,
+            headings,
+        } satisfies ProseConfig
     } catch (err) {
         console.error(`[proseLoader] ${ filename }`, err)
         return null
