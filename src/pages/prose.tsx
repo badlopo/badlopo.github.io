@@ -32,8 +32,7 @@ const ProsePage = () => {
                     </div>
                     <Tooltip
                         id={ 'tooltip-menu' }
-                        openOnClick clickable
-                        disableStyleInjection
+                        clickable disableStyleInjection
                         className={ 'catalog-wrapper' }
                         style={ { zIndex: 20 } }
                         children={
