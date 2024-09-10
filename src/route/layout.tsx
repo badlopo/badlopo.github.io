@@ -1,6 +1,24 @@
 import { Link, NavLink, Outlet } from "react-router-dom";
+import { useEffect, useLayoutEffect } from "react";
 
 const RootLayout = () => {
+    useEffect(() => {
+        // add event listener to save scroll position on page unload
+        window.addEventListener('beforeunload', () => {
+            const container = document.getElementById('root')!
+            sessionStorage.setItem('@scroll', container.scrollTop.toString())
+        })
+    }, [])
+
+    useLayoutEffect(() => {
+        // restore scroll position on page load (if any)
+        const scrollTop = sessionStorage.getItem('@scroll')
+        if(!!scrollTop) {
+            const container = document.getElementById('root')!
+            container.scrollTop = parseFloat(scrollTop)
+        }
+    }, [])
+
     return (
         <>
             <nav>
