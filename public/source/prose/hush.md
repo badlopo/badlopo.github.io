@@ -1,7 +1,8 @@
 ﻿---
-title: 数字摘要在线计算
+title: Online Calculation of Digital Digest Algorithms
 category: project
 created: 2024/09/09
+updated: 2024/09/11
 ---
 
 Provides online calculations of various digital digest algorithms.

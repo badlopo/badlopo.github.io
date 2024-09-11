@@ -1,7 +1,8 @@
 ﻿---
-title: BadFL (WIP)
+title: Flutter 工具库
 category: project
 created: 2024/09/10
+updated: 2024/09/11
 ---
 
 > WIP
