@@ -6,7 +6,7 @@ created: 2024/08/29
 
 GitHub 风格的表格样式
 
-## 样式示例
+## 效果
 
 | Column1 | Column2 | Column3 |
 |---------|---------|---------|
@@ -16,7 +16,7 @@ GitHub 风格的表格样式
 | C1R4    | C2R4    | C3R4    |
 | C1R5    | C2R5    | C3R5    |
 
-## CSS 代码
+## CSS
 
 ```css
 table {
