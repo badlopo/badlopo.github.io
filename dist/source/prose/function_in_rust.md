@@ -18,7 +18,7 @@ fn greet() {
 }
 ```
 
-当声明一个`function item`时，会生成唯一标识其 `function item type`的**零大小**的值。
+当声明一个 `function item` 时，会生成唯一标识其 `function item type` 的**零大小**的值。
 
 此 `function item type` 已经明确标识了该函数的名字、类型参数和声明时绑定的生命周期(区别于调用时传入的生命周期)。所以不再需要一个**函数指针**指向此函数，在调用时也不需要**动态派发**。
 
