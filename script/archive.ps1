@@ -36,14 +36,18 @@ function main
         # close the reader after reading the frontmatter
         $reader.Close()
 
-        # add the frontmatter to the configuration
-        $configItems.Add(@{
-            filename = $item.Name.Replace(".md", "")
-            title = $frontmatter.title
-            category = $frontmatter.category
-            created = $frontmatter.created
-            updated = $frontmatter.updated
-        }) | Out-Null  # omit the output of 'Add' method
+        # skip the draft item
+        if ($frontmatter.draft -ne "true")
+        {
+            # add the frontmatter to the configuration
+            $configItems.Add(@{
+                filename = $item.Name.Replace(".md", "")
+                title = $frontmatter.title
+                category = $frontmatter.category
+                created = $frontmatter.created
+                updated = $frontmatter.updated
+            }) | Out-Null  # omit the output of 'Add' method
+        }
     }
 
     # calculate the statistics of the configuration items
