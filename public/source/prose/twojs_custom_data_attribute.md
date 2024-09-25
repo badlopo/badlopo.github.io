@@ -1,7 +1,8 @@
 ﻿---
-title: two.js 中设置元素的自定义属性
-category: two.js
+title: Two.js -- 自定义属性 (data-*)
+category: javascript
 created: 2024/09/20
+updated: 2024/09/25
 ---
 
 > Environment:
