@@ -16,17 +16,17 @@ created: 2024/09/06
 
 此处样式使用 `tailwindcss` 的类名进行设置, 可以根据实际场景改为 `css` 实现
 
-```jsx
+```tsx
 // ModalWrapper.tsx
 
 import { ReactNode, MouseEvent, useEffect } from 'react'
 import { useRef } from 'react'
 
 const ModalWrapper = ({ children, onBgClick }: { children: ReactNode, onBgClick?: VoidFunction }) => {
-    const ref = useRef < HTMLDivElement | null > (null)
+    const ref = useRef<HTMLDivElement | null>(null)
 
     const handleClick = (ev: MouseEvent<HTMLDivElement>) => {
-        if (ev.target === ref.current) {
+        if(ev.target === ref.current) {
             ev.stopPropagation()
             ev.preventDefault()
             onBgClick?.()
@@ -47,10 +47,10 @@ const ModalWrapper = ({ children, onBgClick }: { children: ReactNode, onBgClick?
     }, [])
 
     return (
-        <div ref={ref} className={
+        <div ref={ ref } className={
             'fixed z-[100] w-full h-full top-0 left-0 bg-[#00000080] flex flex-col items-center justify-center'
-        } onClick={handleClick}>
-            {children}
+        } onClick={ handleClick }>
+            { children }
         </div>
     )
 }
@@ -62,7 +62,7 @@ export {
 
 ## 场景使用
 
-```jsx
+```tsx
 // ModalExample.tsx
 
 import { useState } from "react";
