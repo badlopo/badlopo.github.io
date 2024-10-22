@@ -1,0 +1,46 @@
+@property --container-color {
+    syntax: '<color>';
+    inherits: true;
+    initial-value: transparent;
+}
+
+@property --body-offset {
+    /*syntax: '<transform-function>';*/
+    /*inherits: true;*/
+    /*initial-value: translateY(0);*/
+    syntax: '<length>';
+    inherits: true;
+    initial-value: 0;
+}
+
+@keyframes container-step1 {
+    0% {
+        --container-color: red;
+        --body-offset: 0;
+    }
+    100% {
+        --container-color: green;
+        --body-offset: calc(-1 * var(--carousel-height));
+    }
+}
+
+.carousel-container {
+    --carousel-height: 24px;
+
+    height: var(--carousel-height);
+    background-color: var(--container-color);
+    animation: container-step1 2s forwards; /* TODO: convert into js */
+    display: inline-block;
+    overflow: hidden;
+
+    .carousel-body {
+        transform: translateY(var(--body-offset));
+
+        .carousel-item {
+            height: var(--carousel-height);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+}
