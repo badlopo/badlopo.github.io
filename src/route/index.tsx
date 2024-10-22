@@ -5,7 +5,7 @@ import { ProseGalleryPage } from "../pages/prose_gallery.tsx";
 import { ProsePage } from "../pages/prose.tsx";
 import { AboutPage } from "../pages/about.tsx";
 import { MePage } from "../pages/me.tsx";
-import { HiddenPage } from "../pages/hidden.tsx";
+import { DevPage } from "../pages/dev";
 
 const routes: RouteObject[] = [
     {
@@ -36,8 +36,8 @@ const routes: RouteObject[] = [
                 element: <MePage/>
             },
             {
-                path: '/hidden',
-                element: <HiddenPage/>
+                path: '/dev',
+                element: <DevPage/>
             }
         ],
     },
