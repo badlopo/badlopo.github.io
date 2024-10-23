@@ -8,4 +8,9 @@ export default defineConfig({
     server: {
         port: 2325,
     },
+    css: {
+        modules: {
+            localsConvention: 'camelCaseOnly',
+        },
+    },
 })
