@@ -1,6 +1,6 @@
 const IndexPage = () => {
     return (
-        <main className={ 'post-view index' }>
+        <main className={ 'prose-view index' }>
             <p>Then am I</p>
             <p>A happy fly,</p>
             <p>If I live,</p>
