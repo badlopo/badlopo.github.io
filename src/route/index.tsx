@@ -6,7 +6,7 @@ import { ProsePage } from "@/pages/prose.tsx";
 import { AboutPage } from "@/pages/about.tsx";
 import { MePage } from "@/pages/me.tsx";
 import { DevPage } from "@/pages/dev";
-import { GraphPage } from "@/pages/graph";
+import { TreePage } from "@/pages/tree";
 
 const routes: RouteObject[] = [
     {
@@ -37,15 +37,15 @@ const routes: RouteObject[] = [
                 element: <MePage/>,
             },
             {
-                path: '/graph',
-                loader: GraphPage.loader,
-                element: <GraphPage/>,
-            },
-            {
                 path: '/dev',
                 element: <DevPage/>,
             },
         ],
+    },
+    {
+        path: '/tree',
+        loader: TreePage.loader,
+        element: <TreePage/>,
     },
 ]
 

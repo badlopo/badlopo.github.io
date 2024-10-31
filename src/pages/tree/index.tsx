@@ -1,14 +1,14 @@
 import { archiveLoader } from "@/utils/loader.ts";
 
-const GraphPage = () => {
+const TreePage = () => {
     return (
-        <main className={ 'prose-view graph' }>
+        <main className={ 'prose-view tree' }>
 
         </main>
     )
 }
 
-GraphPage.loader = async () => {
+TreePage.loader = async () => {
     const proses = (await archiveLoader('prose'))!
 
     // TODO: process
@@ -18,5 +18,5 @@ GraphPage.loader = async () => {
 }
 
 export {
-    GraphPage,
+    TreePage,
 }
