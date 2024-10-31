@@ -89,6 +89,9 @@ type ProseConfig = {
      * html content of markdown
      */
     content: string
+    /**
+     * headings extracted from markdown, used for menu
+     */
     headings: ProseHeading[] | null
 }
 
