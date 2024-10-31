@@ -1,7 +1,7 @@
 import { createHashRouter, RouteObject } from "react-router-dom";
 import { RootLayout } from "./layout.tsx";
 import { IndexPage } from "../pages";
-import { ProseGalleryPage } from "../pages/prose_gallery.tsx";
+import { ProseGalleryPage } from "../pages/prose_gallery";
 import { ProsePage } from "../pages/prose.tsx";
 import { AboutPage } from "../pages/about.tsx";
 import { MePage } from "../pages/me.tsx";

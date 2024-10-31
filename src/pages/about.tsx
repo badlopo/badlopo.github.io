@@ -1,4 +1,4 @@
-import { RawConfig, rawLoader } from "../utils/loader.ts";
+import { RawConfig, rawLoader } from "@/utils/loader.ts";
 import { useLoaderData } from "react-router-dom";
 
 const AboutPage = () => {

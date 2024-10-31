@@ -1,7 +1,7 @@
 import { LoaderFunctionArgs, useLoaderData } from "react-router-dom";
-import { ProseConfig, proseLoader } from "../utils/loader.ts";
-import { IconMenu } from "../assets/icon.tsx";
 import { Tooltip } from "react-tooltip";
+import { ProseConfig, proseLoader } from "@/utils/loader.ts";
+import { IconMenu } from "@/assets/icon.tsx";
 
 const ProsePage = () => {
     const { title, created, updated, content, headings } = useLoaderData() as ProseConfig

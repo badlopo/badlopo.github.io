@@ -1,7 +1,7 @@
-import { archiveLoader, ProseArchive } from "../utils/loader.ts";
-import { Link, LoaderFunctionArgs, useLoaderData, useSearchParams } from "react-router-dom";
-import { IconTag } from "../assets/icon.tsx";
 import { useState } from "react";
+import { Link, LoaderFunctionArgs, useLoaderData, useSearchParams } from "react-router-dom";
+import { archiveLoader, ProseArchive } from "@/utils/loader.ts";
+import { IconTag } from "@/assets/icon.tsx";
 
 const ProseGalleryPage = () => {
     const { date, items, statistics } = useLoaderData() as ProseArchive
