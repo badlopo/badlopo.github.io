@@ -1,11 +1,12 @@
 import { createHashRouter, RouteObject } from "react-router-dom";
 import { RootLayout } from "./layout.tsx";
-import { IndexPage } from "../pages";
-import { ProseGalleryPage } from "../pages/prose_gallery";
-import { ProsePage } from "../pages/prose.tsx";
-import { AboutPage } from "../pages/about.tsx";
-import { MePage } from "../pages/me.tsx";
-import { DevPage } from "../pages/dev";
+import { IndexPage } from "@/pages";
+import { ProseGalleryPage } from "@/pages/prose_gallery";
+import { ProsePage } from "@/pages/prose.tsx";
+import { AboutPage } from "@/pages/about.tsx";
+import { MePage } from "@/pages/me.tsx";
+import { DevPage } from "@/pages/dev";
+import { GraphPage } from "@/pages/graph";
 
 const routes: RouteObject[] = [
     {
@@ -18,27 +19,32 @@ const routes: RouteObject[] = [
             {
                 path: '/prose',
                 loader: ProseGalleryPage.loader,
-                element: <ProseGalleryPage/>
+                element: <ProseGalleryPage/>,
             },
             {
                 path: '/prose/:filename',
                 loader: ProsePage.loader,
-                element: <ProsePage/>
+                element: <ProsePage/>,
             },
             {
                 path: '/about',
                 loader: AboutPage.loader,
-                element: <AboutPage/>
+                element: <AboutPage/>,
             },
             {
                 path: '/me',
                 loader: MePage.loader,
-                element: <MePage/>
+                element: <MePage/>,
+            },
+            {
+                path: '/graph',
+                loader: GraphPage.loader,
+                element: <GraphPage/>,
             },
             {
                 path: '/dev',
-                element: <DevPage/>
-            }
+                element: <DevPage/>,
+            },
         ],
     },
 ]
