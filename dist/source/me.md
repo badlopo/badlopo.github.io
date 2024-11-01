@@ -1,6 +1,9 @@
 # Me
 
-> Do what you've promised!
+> If thought is life  
+> and strength and breath,  
+> And the want  
+> of thought is death!
 
 ---
 
