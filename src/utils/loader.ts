@@ -33,16 +33,17 @@ marked.parse = (...args) => {
 }
 
 // ===== archive =====
+type ProseArchiveItem = {
+    filename: string
+    title: string
+    category: string
+    created: string
+    updated: string | null
+}
 type ProseArchive = {
     date: number
     statistics: { [category: string]: number }
-    items: {
-        filename: string
-        title: string
-        category: string
-        created: string
-        updated: string | null
-    }[]
+    items: ProseArchiveItem[]
 }
 
 // overload signature of archiveLoader
@@ -154,6 +155,7 @@ const proseLoader = async (filename: string): Promise<ProseConfig | null> => {
 }
 
 export type {
+    ProseArchiveItem,
     ProseArchive,
     RawConfig,
     ProseConfig,
