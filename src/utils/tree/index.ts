@@ -237,7 +237,6 @@ class TreeRenderer {
                 d.children = d.children ? undefined : d._children
                 instance._layout()
                 instance._render(d)
-                console.log('toggle fold status', d, instance.#laidOutData)
             }
         })
     }
@@ -245,6 +244,8 @@ class TreeRenderer {
     private _render(eventNode: HierarchyNode<TreeNode>) {
         this._renderLinks(eventNode)
         this._renderNodes(eventNode)
+
+        // 更新 x0, y0
         this.#laidOutData.each(d => {
             d.x0 = d.x
             d.y0 = d.y
