@@ -1,7 +1,10 @@
+import './index.css'
+
 import { archiveLoader, ProseArchive } from "@/utils/loader.ts";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { TreeNodeLv1, TreeNodeLv3 } from "@/utils/tree/type.ts";
 import { useLoaderData } from "react-router-dom";
+import { TreeRenderer } from "@/utils/tree";
 
 type TreePageLoaderData = {
     tree: TreeNodeLv1
@@ -10,16 +13,18 @@ type TreePageLoaderData = {
 const TreePage = () => {
     const { tree } = useLoaderData() as TreePageLoaderData
 
+    const ref = useRef<HTMLDivElement | null>(null)
+
     useEffect(() => {
-        // TODO: render tree
-        console.log('tree:', tree)
+        const tr = new TreeRenderer(ref.current!, tree)
+        tr.render()
+
+        return () => {
+            tr.dispose()
+        }
     }, [])
 
-    return (
-        <div className={ 'tree-container' }>
-            {/* TODO: svg element (.tree-root) */ }
-        </div>
-    )
+    return <div ref={ ref } className={ 'tree-container' }/>
 }
 
 const treeBuilder = (archive: ProseArchive): TreeNodeLv1 => {
