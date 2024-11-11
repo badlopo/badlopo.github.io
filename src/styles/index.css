@@ -331,6 +331,10 @@ main {
         line-height: 1.25;
     }
 
+    h1 {
+        text-wrap: balance;
+    }
+
     h2 {
         padding-bottom: 0.5rem;
         border-bottom: solid 1px #d1d9e0b3;
