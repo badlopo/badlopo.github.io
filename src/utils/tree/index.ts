@@ -40,15 +40,41 @@ const calc_node_id = (node: HierarchyNode<TreeNode>) => {
  * build node depends on depth
  */
 const build_node = (selection: Selection<SVGGElement, TreeNode, null, undefined>, node: HierarchyNode<TreeNode>) => {
-    selection
-        .append('text')
-        .text(`Level ${ node.depth }`)
-        .attr('x', 15)
-        .attr('y', 5)
-    selection.append('circle')
-        .attr('r', 10)
-        .attr('stroke', 'steelblue')
-        .attr('fill', 'white')
+    switch(node.depth) {
+        case 0: {
+            selection
+                .append('circle')
+                .attr('r', TreeConfig.CIRCLE_RADIUS)
+            return
+        }
+        case 1: {
+            const { category, count } = node.data as TreeNodeLv2
+            selection
+                .append('circle')
+                .attr('r', TreeConfig.CIRCLE_RADIUS)
+            selection
+                .append('text')
+                .attr('font-variant-caps', 'all-small-caps')
+                .attr('text-anchor', 'middle')
+                .attr('alignment-baseline', 'top')
+                .attr('dy', TreeConfig.CIRCLE_RADIUS * 2 + TreeConfig.LV1_GAP)
+                .text(`${ category } (${ count })`)
+            return
+        }
+        case 2: {
+            selection
+                .append('circle')
+                .attr('r', TreeConfig.CIRCLE_RADIUS)
+            selection
+                .append('text')
+                .attr('dx', TreeConfig.CIRCLE_RADIUS + TreeConfig.LV2_GAP)
+                .attr('alignment-baseline', 'middle')
+                .text((node.data as TreeNodeLv3).detail.title)
+            return
+        }
+        default:
+            console.warn('unknown node depth:', node.depth)
+    }
 }
 
 class TreeRenderer {

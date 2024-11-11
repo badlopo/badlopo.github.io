@@ -4,14 +4,33 @@
 
     .tree-root {
         .tree-links {
-            fill: none;
-            stroke: #4e4e4e;
-            stroke-width: 1;
+            .tree-link {
+                fill: none;
+                stroke: #DFDFDF;
+                stroke-width: 1;
+            }
         }
 
         .tree-nodes {
             .tree-node {
                 cursor: pointer;
+
+                circle {
+                    fill: white;
+                    stroke: #707070;
+                    stroke-width: 1;
+                }
+
+                text {
+                    font-size: 12px;
+                }
+            }
+
+            .tree-node-1 {
+                text {
+                    font-size: 16px;
+                    font-variant-caps: all-small-caps;
+                }
             }
         }
     }
