@@ -65,11 +65,19 @@ const build_node = (selection: Selection<SVGGElement, TreeNode, null, undefined>
             selection
                 .append('circle')
                 .attr('r', TreeConfig.CIRCLE_RADIUS)
-            selection
+            // selection
+            //     .append('text')
+            //     .attr('dx', TreeConfig.CIRCLE_RADIUS + TreeConfig.LV2_GAP)
+            //     .attr('alignment-baseline', 'middle')
+            //     .text((node.data as TreeNodeLv3).detail.title)
+            selection.append('a')
+                .attr('href', '/#/prose/' + (node.data as TreeNodeLv3).detail.filename)
+                .attr('target', '_blank')
                 .append('text')
                 .attr('dx', TreeConfig.CIRCLE_RADIUS + TreeConfig.LV2_GAP)
                 .attr('alignment-baseline', 'middle')
                 .text((node.data as TreeNodeLv3).detail.title)
+
             return
         }
         default:

@@ -24,6 +24,12 @@
                 text {
                     font-size: 12px;
                 }
+
+                a {
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
             }
 
             .tree-node-1 {
