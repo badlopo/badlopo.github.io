@@ -18,6 +18,10 @@ const marked = new Marked(
                 counter[depth - 2] += 1
                 const id = `heading_${ depth }_${ counter[depth - 2] }`
                 return `<h${ depth } id="${ id }" class="heading-anchor">${ text }</h${ depth }>`
+            },
+            link({ href, title, text }: Tokens.Link): string {
+                const titleAttr = title ? ` title="${ title }"` : ''
+                return `<a href="${ href }"${ titleAttr } target="_blank">${ text }</a>`
             }
         }
     }
