@@ -23,6 +23,131 @@ declare module "d3" {
     }
 }
 
+const SVG_LOPO = `<g transform="translate(35, 135)" fill="#fff">
+    <line x1="0" y1="-120" x2="0" y2="70" stroke="#5EB96E">
+        <animate attributeName="y1" attributeType="XML"
+                 from="-25" to="-120"
+                 dur="1s" repeatCount="1"/>
+        <animate attributeName="y2" attributeType="XML"
+                 from="-25" to="70"
+                 dur="1s" repeatCount="1"/>
+    </line>
+</g>
+<g transform="translate(140, 135)">
+    <path d="M0,-60 A60,60 0 0 0 -60,0" stroke="#49A9DB" style="mix-blend-mode: multiply">
+        <animate attributeName="stroke-dasharray" attributeType="XML"
+                 values="0,95;95,0;0,95" keyTimes="0;.7;1"
+                 dur="1.5s" repeatCount="indefinite"/>
+        <animateTransform attributeName="transform" type="rotate"
+                          from="0 0,0" to="360 0,0"
+                          dur="3s" repeatCount="indefinite"/>
+    </path>
+    <path d="M60,0 A60,60 0 0 0 0,-60" stroke="#F38F31" style="mix-blend-mode: multiply">
+        <animate attributeName="stroke-dasharray" attributeType="XML"
+                 values="0,95;95,0;0,95" keyTimes="0;.7;1"
+                 dur="1.5s" repeatCount="indefinite"/>
+        <animateTransform attributeName="transform" type="rotate"
+                          from="0 0,0" to="360 0,0"
+                          dur="3s" repeatCount="indefinite"/>
+    </path>
+    <path d="M0,60 A60,60 0 0 0 60,0" stroke="#9D529C" style="mix-blend-mode: multiply">
+        <animate attributeName="stroke-dasharray" attributeType="XML"
+                 values="0,95;95,0;0,95" keyTimes="0;.7;1"
+                 dur="1.5s" repeatCount="indefinite"/>
+        <animateTransform attributeName="transform" type="rotate"
+                          from="0 0,0" to="360 0,0"
+                          dur="3s" repeatCount="indefinite"/>
+    </path>
+    <path d="M-60,0 A60,60 0 0 0 0,60" stroke="#C5D73F" style="mix-blend-mode: multiply">
+        <animate attributeName="stroke-dasharray" attributeType="XML"
+                 values="0,95;95,0;0,95" keyTimes="0;.7;1"
+                 dur="1.5s" repeatCount="indefinite"/>
+        <animateTransform attributeName="transform" type="rotate"
+                          from="0 0,0" to="360 0,0"
+                          dur="3s" repeatCount="indefinite"/>
+    </path>
+</g>
+<g transform="translate(245, 135)">
+    <path d="M60,-60 A60,60 0 0 0 0,0" stroke="#C5D73F" style="mix-blend-mode: multiply">
+        <animate attributeName="stroke-dasharray" attributeType="XML"
+                 values="0,95;95,0;0,95" keyTimes="0;.7;1"
+                 dur="2s" repeatCount="indefinite"/>
+        <animateTransform attributeName="transform" type="rotate"
+                          from="0 60,0" to="360 60,0"
+                          dur="4s" repeatCount="indefinite"/>
+    </path>
+    <path d="M120,0 A60,60 0 0 0 60,-60" stroke="#9D529C" style="mix-blend-mode: multiply">
+        <animate attributeName="stroke-dasharray" attributeType="XML"
+                 values="0,95;95,0;0,95" keyTimes="0;.7;1"
+                 dur="2s" repeatCount="indefinite"/>
+        <animateTransform attributeName="transform" type="rotate"
+                          from="0 60,0" to="360 60,0"
+                          dur="4s" repeatCount="indefinite"/>
+    </path>
+    <path d="M60,60 A60,60 0 0 0 120,0" stroke="#5EB96E" style="mix-blend-mode: multiply">
+        <animate attributeName="stroke-dasharray" attributeType="XML"
+                 values="0,95;95,0;0,95" keyTimes="0;.7;1"
+                 dur="2s" repeatCount="indefinite"/>
+        <animateTransform attributeName="transform" type="rotate"
+                          from="0 60,0" to="360 60,0"
+                          dur="4s" repeatCount="indefinite"/>
+    </path>
+    <path d="M0,0 A60,60 0 0 0 60,60" stroke="#FEC330" style="mix-blend-mode: multiply">
+        <animate attributeName="stroke-dasharray" attributeType="XML"
+                 values="0,95;95,0;0,95" keyTimes="0;.7;1"
+                 dur="2s" repeatCount="indefinite"/>
+        <animateTransform attributeName="transform" type="rotate"
+                          from="0 60,0" to="360 60,0"
+                          dur="4s" repeatCount="indefinite"/>
+    </path>
+
+    <line x1="0" y1="0" x2="0" y2="-70" stroke="#FC5356" style="mix-blend-mode: multiply">
+        <animate attributeName="y1" attributeType="XML"
+                 from="-70" to="0"
+                 dur="1s" repeatCount="1"/>
+    </line>
+    <line x1="0" y1="0" x2="0" y2="120" stroke="#49A9DB" style="mix-blend-mode: multiply">
+        <animate attributeName="y1" attributeType="XML"
+                 from="120" to="0"
+                 dur="1s" repeatCount="1"/>
+    </line>
+</g>
+<g transform="translate(470, 135)">
+    <path d="M0,-60 A60,60 0 0 0 -60,0" stroke="#FEC330" style="mix-blend-mode: multiply">
+        <animate attributeName="stroke-dasharray" attributeType="XML"
+                 values="0,95;95,0;0,95" keyTimes="0;.7;1"
+                 dur="1.5s" repeatCount="indefinite"/>
+        <animateTransform attributeName="transform" type="rotate"
+                          from="0 0,0" to="360 0,0"
+                          dur="3s" repeatCount="indefinite"/>
+    </path>
+    <path d="M60,0 A60,60 0 0 0 0,-60" stroke="#5EB96E" style="mix-blend-mode: multiply">
+        <animate attributeName="stroke-dasharray" attributeType="XML"
+                 values="0,95;95,0;0,95" keyTimes="0;.7;1"
+                 dur="1.5s" repeatCount="indefinite"/>
+        <animateTransform attributeName="transform" type="rotate"
+                          from="0 0,0" to="360 0,0"
+                          dur="3s" repeatCount="indefinite"/>
+    </path>
+    <path d="M0,60 A60,60 0 0 0 60,0" stroke="#F38F31" style="mix-blend-mode: multiply">
+        <animate attributeName="stroke-dasharray" attributeType="XML"
+                 values="0,95;95,0;0,95" keyTimes="0;.7;1"
+                 dur="1.5s" repeatCount="indefinite"/>
+        <animateTransform attributeName="transform" type="rotate"
+                          values="0 0,0; 360 0,0"
+                          from="0 0,0" to="360 0,0"
+                          dur="3s" repeatCount="indefinite"/>
+    </path>
+    <path d="M-60,0 A60,60 0 0 0 0,60" stroke="#FC5356" style="mix-blend-mode: multiply">
+        <animate attributeName="stroke-dasharray" attributeType="XML"
+                 values="0,95;95,0;0,95" keyTimes="0;.7;1"
+                 dur="1.5s" repeatCount="indefinite"/>
+        <animateTransform attributeName="transform" type="rotate"
+                          from="0 0,0" to="360 0,0"
+                          dur="3s" repeatCount="indefinite"/>
+    </path>
+</g>`
+
 const calc_node_id = (node: HierarchyNode<TreeNode>) => {
     switch(node.depth) {
         case 0:
@@ -46,9 +171,21 @@ const build_node = (
 ) => {
     switch(node.depth) {
         case 0: {
+            // selection
+            //     .append('circle')
+            //     .attr('r', TreeConfig.CIRCLE_RADIUS)
             selection
-                .append('circle')
-                .attr('r', TreeConfig.CIRCLE_RADIUS)
+                .append('svg')
+                .attr('xmlns', 'http://www.w3.org/2000/svg')
+                .attr('viewBox', '0 0 565 270')
+                .attr('width', 113)
+                .attr('height', 54)
+                .attr('fill', 'none')
+                .attr('stroke-width', 20)
+                .attr('stroke-linecap', 'round')
+                .attr('x', -56)
+                .attr('y', -27)
+                .html(SVG_LOPO)
             return
         }
         case 1: {
@@ -218,7 +355,7 @@ class TreeRenderer {
 
     private _renderLinks(eventNode: HierarchyNode<TreeNode>) {
         // 当前的连接线
-        const treeLinks = this.#linkGroup.selectAll<SVGPathElement, HierarchyLink<TreeNode>>('path')
+        const treeLinks = this.#linkGroup.selectAll<SVGPathElement, HierarchyLink<TreeNode>>('path.tree-link')
             .data(this.#laidOutData.links(), d => d.target.id!)
 
         // 连接线: 新增的连接线
@@ -247,7 +384,7 @@ class TreeRenderer {
 
     private _renderNodes(eventNode: HierarchyNode<TreeNode>) {
         // 当前的节点
-        const treeNodes = this.#nodeGroup.selectAll<SVGGElement, HierarchyNode<TreeNode>>('g')
+        const treeNodes = this.#nodeGroup.selectAll<SVGGElement, HierarchyNode<TreeNode>>('g.tree-node')
             .data(this.#laidOutData.descendants(), d => d.id!)
 
         const toggleLv1Node = (d: HierarchyNode<TreeNode>) => {
