@@ -9,31 +9,31 @@ interface TreeNode {
 /**
  * lv1: root
  */
-interface TreeNodeLv1 extends TreeNode {
+interface TreeNodeLv0 extends TreeNode {
     date: number
-    children: TreeNodeLv2[]
+    children: TreeNodeLv1[]
 }
 
 /**
  * lv2: category
  * as final class
  */
-interface TreeNodeLv2 extends TreeNode {
+interface TreeNodeLv1 extends TreeNode {
     category: string
     count: number
-    children: TreeNodeLv3[]
+    children: TreeNodeLv2[]
 }
 
 /**
  * lv3: prose
  */
-interface TreeNodeLv3 extends TreeNode {
+interface TreeNodeLv2 extends TreeNode {
     detail: ProseArchiveItem
 }
 
 export type {
     TreeNode,
+    TreeNodeLv0,
     TreeNodeLv1,
     TreeNodeLv2,
-    TreeNodeLv3,
 }

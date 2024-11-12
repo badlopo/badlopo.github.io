@@ -2,12 +2,12 @@ import './index.css'
 
 import { archiveLoader, ProseArchive } from "@/utils/loader.ts";
 import { useEffect, useRef } from "react";
-import { TreeNodeLv1, TreeNodeLv3 } from "@/utils/tree/type.ts";
+import { TreeNodeLv0, TreeNodeLv2 } from "@/utils/tree/type.ts";
 import { useLoaderData } from "react-router-dom";
 import { TreeRenderer } from "@/utils/tree";
 
 type TreePageLoaderData = {
-    tree: TreeNodeLv1
+    tree: TreeNodeLv0
 }
 
 const TreePage = () => {
@@ -27,8 +27,8 @@ const TreePage = () => {
     return <div ref={ ref } className={ 'tree-container' }/>
 }
 
-const treeBuilder = (archive: ProseArchive): TreeNodeLv1 => {
-    const categories: { [category: string]: { count: number, children: TreeNodeLv3[] } } = {}
+const treeBuilder = (archive: ProseArchive): TreeNodeLv0 => {
+    const categories: { [category: string]: { count: number, children: TreeNodeLv2[] } } = {}
 
     for (const category in archive.statistics) {
         categories[category] = {

@@ -1,4 +1,4 @@
-import { TreeNode, TreeNodeLv1, TreeNodeLv2, TreeNodeLv3 } from "@/utils/tree/type.ts";
+import { TreeNode, TreeNodeLv0, TreeNodeLv1, TreeNodeLv2 } from "@/utils/tree/type.ts";
 import {
     BaseType,
     create, hierarchy,
@@ -28,9 +28,9 @@ const calc_node_id = (node: HierarchyNode<TreeNode>) => {
         case 0:
             return 'root'
         case 1:
-            return (node.data as TreeNodeLv2).category
+            return (node.data as TreeNodeLv1).category
         case 2:
-            return (node.data as TreeNodeLv3).detail.filename
+            return (node.data as TreeNodeLv2).detail.filename
         default:
             return 'unknown'
     }
@@ -39,7 +39,11 @@ const calc_node_id = (node: HierarchyNode<TreeNode>) => {
 /**
  * build node depends on depth
  */
-const build_node = (selection: Selection<SVGGElement, TreeNode, null, undefined>, node: HierarchyNode<TreeNode>) => {
+const build_node = (
+    selection: Selection<SVGGElement, HierarchyNode<TreeNode>, null, undefined>,
+    node: HierarchyNode<TreeNode>,
+    toggleLv1Node: (d: HierarchyNode<TreeNode>) => void
+) => {
     switch(node.depth) {
         case 0: {
             selection
@@ -48,11 +52,21 @@ const build_node = (selection: Selection<SVGGElement, TreeNode, null, undefined>
             return
         }
         case 1: {
-            const { category, count } = node.data as TreeNodeLv2
+            const { category, count } = node.data as TreeNodeLv1
             selection
                 .append('circle')
                 .attr('r', TreeConfig.CIRCLE_RADIUS)
+                .on('click', (_, d) => {
+                    console.log('click:', d)
+                    toggleLv1Node(d)
+                })
             selection
+                // anchor
+                .append('a')
+                .attr('href', '/#/prose?category=' + (node.data as TreeNodeLv1).category)
+                .attr('target', TreeRenderer.anchorTarget)
+                .on('click', (ev) => ev.stopPropagation())
+                // inner text
                 .append('text')
                 .attr('font-variant-caps', 'all-small-caps')
                 .attr('text-anchor', 'middle')
@@ -65,19 +79,13 @@ const build_node = (selection: Selection<SVGGElement, TreeNode, null, undefined>
             selection
                 .append('circle')
                 .attr('r', TreeConfig.CIRCLE_RADIUS)
-            // selection
-            //     .append('text')
-            //     .attr('dx', TreeConfig.CIRCLE_RADIUS + TreeConfig.LV2_GAP)
-            //     .attr('alignment-baseline', 'middle')
-            //     .text((node.data as TreeNodeLv3).detail.title)
             selection.append('a')
-                .attr('href', '/#/prose/' + (node.data as TreeNodeLv3).detail.filename)
-                .attr('target', '_blank')
+                .attr('href', '/#/prose/' + (node.data as TreeNodeLv2).detail.filename)
+                .attr('target', TreeRenderer.anchorTarget)
                 .append('text')
                 .attr('dx', TreeConfig.CIRCLE_RADIUS + TreeConfig.LV2_GAP)
                 .attr('alignment-baseline', 'middle')
-                .text((node.data as TreeNodeLv3).detail.title)
-
+                .text((node.data as TreeNodeLv2).detail.title)
             return
         }
         default:
@@ -87,6 +95,11 @@ const build_node = (selection: Selection<SVGGElement, TreeNode, null, undefined>
 
 class TreeRenderer {
     /**
+     * a 标签的 target 属性
+     */
+    public static anchorTarget: "_self" | "_blank" | "_parent" | "_top" = '_self'
+
+    /**
      * 容器
      */
     readonly #host: HTMLElement
@@ -94,7 +107,7 @@ class TreeRenderer {
     /**
      * 原始数据
      */
-    readonly #treeData: TreeNodeLv1
+    readonly #treeData: TreeNodeLv0
 
     /**
      * 连接线生成函数
@@ -131,7 +144,7 @@ class TreeRenderer {
      */
     #transition!: Transition<BaseType, undefined, null, undefined>
 
-    constructor(host: HTMLElement, treeData: TreeNodeLv1) {
+    constructor(host: HTMLElement, treeData: TreeNodeLv0) {
         this.#host = host
         this.#treeData = treeData
 
@@ -237,6 +250,12 @@ class TreeRenderer {
         const treeNodes = this.#nodeGroup.selectAll<SVGGElement, HierarchyNode<TreeNode>>('g')
             .data(this.#laidOutData.descendants(), d => d.id!)
 
+        const toggleLv1Node = (d: HierarchyNode<TreeNode>) => {
+            d.children = d.children ? undefined : d._children
+            this._layout()
+            this._render(d)
+        }
+
         // 节点: 新增的节点
         const enterNodes = treeNodes.enter()
             .append('g')
@@ -245,7 +264,7 @@ class TreeRenderer {
             .attr('fill-opacity', 0)
             .attr('stroke-opacity', 0)
             .each(function (d) {
-                build_node(select(this), d)
+                build_node(select(this), d, toggleLv1Node)
             })
 
         // 节点: 更新的节点
@@ -264,15 +283,14 @@ class TreeRenderer {
             .attr('stroke-opacity', 0)
             .remove()
 
-        // 事件绑定
-        const instance = this
-        enterNodes.on('click', function (_, d) {
-            if(d.depth === 1) {
-                d.children = d.children ? undefined : d._children
-                instance._layout()
-                instance._render(d)
-            }
-        })
+        // const instance = this
+        // enterNodes.on('click', function (_, d) {
+        //     if(d.depth === 1) {
+        //         d.children = d.children ? undefined : d._children
+        //         instance._layout()
+        //         instance._render(d)
+        //     }
+        // })
     }
 
     private _render(eventNode: HierarchyNode<TreeNode>) {
