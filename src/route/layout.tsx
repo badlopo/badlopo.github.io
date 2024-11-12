@@ -1,7 +1,16 @@
 import { Link, NavLink, Outlet } from "react-router-dom";
 import { useEffect, useLayoutEffect } from "react";
+import { Provider } from "@ebay/nice-modal-react";
 
 const RootLayout = () => {
+    return (
+        <Provider>
+            <Outlet/>
+        </Provider>
+    )
+}
+
+const AppLayout = () => {
     useEffect(() => {
         // add event listener to save scroll position on page unload
         window.addEventListener('beforeunload', () => {
@@ -40,4 +49,5 @@ const RootLayout = () => {
 
 export {
     RootLayout,
+    AppLayout,
 }
