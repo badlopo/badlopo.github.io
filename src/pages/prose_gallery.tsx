@@ -24,7 +24,7 @@ const ProseGalleryPage = () => {
     }
 
     return (
-        <main className={ 'gallery-view prose-gallery' }>
+        <main className={ 'gallery-view prose-gallery-page' }>
             <h1>Prose</h1>
             <div className={ 'meta-section' }>
                 <span>Archived: { new Date(date).toLocaleDateString() }</span>

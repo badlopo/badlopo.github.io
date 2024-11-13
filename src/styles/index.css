@@ -277,7 +277,7 @@ main {
     justify-content: center;
 }
 
-/* page spec */
+/* view spec */
 .gallery-view {
     a.operate-button {
         text-decoration: none;
@@ -451,13 +451,14 @@ main {
     }
 }
 
-.index {
+/* page spec */
+.home-page {
     font-size: 2rem;
     font-style: italic;
     text-align: center;
 }
 
-.prose-gallery {
+.prose-gallery-page {
     .statistic-block {
         margin-bottom: 1rem;
         padding: 0.5rem 1rem;

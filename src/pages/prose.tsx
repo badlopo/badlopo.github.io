@@ -11,7 +11,7 @@ const ProsePage = () => {
     }
 
     return (
-        <main className={ 'prose-view prose' }>
+        <main className={ 'prose-view prose-page' }>
             <h1>{ title }</h1>
             <div className={ 'meta-section' }>
                 <span>Created: { created }</span>

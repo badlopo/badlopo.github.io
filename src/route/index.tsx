@@ -1,8 +1,8 @@
 import { createHashRouter, RouteObject } from "react-router-dom";
 import { AppLayout, RootLayout } from "./layout.tsx";
-import { IndexPage } from "@/pages";
-import { ProseGalleryPage } from "@/pages/prose_gallery";
+import { HomePage } from "@/pages/home.tsx";
 import { ProsePage } from "@/pages/prose.tsx";
+import { ProseGalleryPage } from "@/pages/prose_gallery.tsx";
 import { AboutPage } from "@/pages/about.tsx";
 import { MePage } from "@/pages/me.tsx";
 import { DevPage } from "@/pages/dev";
@@ -17,7 +17,7 @@ const routes: RouteObject[] = [
                 children: [
                     {
                         path: '/',
-                        element: <IndexPage/>,
+                        element: <HomePage/>,
                     },
                     {
                         path: '/prose',

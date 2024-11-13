@@ -1,6 +1,6 @@
-const IndexPage = () => {
+const HomePage = () => {
     return (
-        <main className={ 'prose-view index' }>
+        <main className={ 'prose-view home-page' }>
             <p>Then am I</p>
             <p>A happy fly,</p>
             <p>If I live,</p>
@@ -10,5 +10,5 @@ const IndexPage = () => {
 }
 
 export {
-    IndexPage,
+    HomePage,
 }
