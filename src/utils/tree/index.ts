@@ -24,6 +24,10 @@ declare module "d3" {
 }
 
 type TreeAnchorTarget = '_self' | '_blank' | '_parent' | '_top'
+type TreeAnchorConfig = {
+    target: TreeAnchorTarget
+    onClick?: () => void
+}
 
 const SVG_LOPO = `<g transform="translate(35, 135)" fill="#fff">
     <line x1="0" y1="-120" x2="0" y2="70" stroke="#5EB96E">
@@ -169,7 +173,7 @@ const calc_node_id = (node: HierarchyNode<TreeNode>) => {
 const build_node = (
     selection: Selection<SVGGElement, HierarchyNode<TreeNode>, null, undefined>,
     node: HierarchyNode<TreeNode>,
-    anchorTarget: TreeAnchorTarget,
+    anchorConfig: TreeAnchorConfig,
     toggleLv1Node: (d: HierarchyNode<TreeNode>) => void
 ) => {
     switch(node.depth) {
@@ -203,8 +207,11 @@ const build_node = (
                 // anchor
                 .append('a')
                 .attr('href', '/#/prose?category=' + (node.data as TreeNodeLv1).category)
-                .attr('target', anchorTarget)
-                .on('click', (ev) => ev.stopPropagation())
+                .attr('target', anchorConfig.target)
+                .on('click', (ev) => {
+                    ev.stopPropagation()
+                    anchorConfig.onClick?.()
+                })
                 // inner text
                 .append('text')
                 .attr('font-variant-caps', 'all-small-caps')
@@ -218,9 +225,16 @@ const build_node = (
             selection
                 .append('circle')
                 .attr('r', TreeConfig.CIRCLE_RADIUS)
-            selection.append('a')
+            selection
+                // anchor
+                .append('a')
                 .attr('href', '/#/prose/' + (node.data as TreeNodeLv2).detail.filename)
-                .attr('target', anchorTarget)
+                .attr('target', anchorConfig.target)
+                .on('click', (ev) => {
+                    ev.stopPropagation()
+                    anchorConfig.onClick?.()
+                })
+                // inner text
                 .append('text')
                 .attr('dx', TreeConfig.CIRCLE_RADIUS + TreeConfig.LV2_GAP)
                 .attr('alignment-baseline', 'middle')
@@ -236,7 +250,7 @@ class TreeRenderer {
     /**
      * a 标签的 target 属性
      */
-    readonly #anchorTarget: TreeAnchorTarget
+    readonly #anchorConfig: TreeAnchorConfig
 
     /**
      * 容器
@@ -283,10 +297,10 @@ class TreeRenderer {
      */
     #transition!: Transition<BaseType, undefined, null, undefined>
 
-    constructor(host: HTMLElement, treeData: TreeNodeLv0, anchorTarget: TreeAnchorTarget = '_self') {
+    constructor(host: HTMLElement, treeData: TreeNodeLv0, anchorConfig: TreeAnchorConfig = { target: '_self' }) {
         this.#host = host
         this.#treeData = treeData
-        this.#anchorTarget = anchorTarget
+        this.#anchorConfig = anchorConfig
 
         // 创建连接线生成函数
         this.#linker = linkHorizontal<unknown, HierarchyLink<TreeNode>, HierarchyNode<TreeNode>>()
@@ -388,7 +402,7 @@ class TreeRenderer {
         const treeNodes = this.#nodeGroup.selectAll<SVGGElement, HierarchyNode<TreeNode>>('g.tree-node')
             .data(this.#laidOutData.descendants(), d => d.id!)
 
-        const anchorTarget = this.#anchorTarget
+        const anchorConfig = this.#anchorConfig
         const toggleLv1Node = (d: HierarchyNode<TreeNode>) => {
             d.children = d.children ? undefined : d._children
             this._layout()
@@ -403,7 +417,7 @@ class TreeRenderer {
             .attr('fill-opacity', 0)
             .attr('stroke-opacity', 0)
             .each(function (d) {
-                build_node(select(this), d, anchorTarget, toggleLv1Node)
+                build_node(select(this), d, anchorConfig, toggleLv1Node)
             })
 
         // 节点: 更新的节点

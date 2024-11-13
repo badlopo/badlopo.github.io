@@ -1,6 +1,6 @@
 import { create, useModal } from "@ebay/nice-modal-react";
 import { ModalWrapper } from "@/modal/base.tsx";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 
 const TreeviewModal = create(() => {
     const modalRef = useRef<HTMLDivElement | null>(null)
@@ -21,6 +21,15 @@ const TreeviewModal = create(() => {
             remove()
         }
     }
+
+    const handleMessage = (ev: MessageEvent<{ action: string }>) => {
+        if(ev.data.action === '@lopo/close-modal') closeModal()
+    }
+
+    useEffect(() => {
+        window.addEventListener('message', handleMessage)
+        return () => window.removeEventListener('message', handleMessage)
+    }, [])
 
     return (
         <ModalWrapper onBgClick={ closeModal }>

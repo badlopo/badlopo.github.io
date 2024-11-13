@@ -18,8 +18,12 @@ const TreeviewPage = () => {
     const hostRef = useRef<HTMLDivElement | null>(null)
     const trRef = useRef<TreeRenderer | null>(null)
 
+    const handleAnchorClick = () => {
+        window.parent.postMessage({ action: '@lopo/close-modal' }, window.location.origin)
+    }
+
     useEffect(() => {
-        const tr = new TreeRenderer(hostRef.current!, tree, target)
+        const tr = new TreeRenderer(hostRef.current!, tree, { target, onClick: handleAnchorClick })
         tr.render()
         trRef.current = tr
 
