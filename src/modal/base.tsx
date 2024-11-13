@@ -26,9 +26,7 @@ const ModalWrapper = ({ children, onBgClick }: { children: ReactNode, onBgClick?
     }, [])
 
     return (
-        <div ref={ ref } className={
-            'fixed z-[100] w-full h-full top-0 left-0 bg-[#00000080] flex flex-col items-center justify-center'
-        } onClick={ handleClick }>
+        <div ref={ ref } className={ 'modal-wrapper' } onClick={ handleClick }>
             { children }
         </div>
     )

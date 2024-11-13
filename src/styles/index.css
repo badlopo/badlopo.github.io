@@ -257,11 +257,27 @@ main {
     .meta-section {
         margin: 1rem 0;
         font-size: 13px;
-        font-family: Atkinson;
+        font-family: Atkinson, sans-serif;
         text-align: center;
     }
 }
 
+/* modal */
+.modal-wrapper {
+    position: fixed;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: #00000080;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* page spec */
 .gallery-view {
     a.operate-button {
         text-decoration: none;
