@@ -197,7 +197,6 @@ const build_node = (
                 .append('circle')
                 .attr('r', TreeConfig.CIRCLE_RADIUS)
                 .on('click', (_, d) => {
-                    console.log('click:', d)
                     toggleLv1Node(d)
                 })
             selection
@@ -445,19 +444,23 @@ class TreeRenderer {
     }
 
     public zoomIn() {
-        this.#svg.transition(this.#transition)
-            // TODO: set duration
+        this.#svg
+            .transition()
+            .duration(TreeConfig.TRANSITION_DURATION)
             .call(this.#zoom.scaleBy, 1.2)
     }
 
     public zoomOut() {
-        this.#svg.transition(this.#transition)
-            // TODO: set duration
+        this.#svg
+            .transition()
+            .duration(TreeConfig.TRANSITION_DURATION)
             .call(this.#zoom.scaleBy, 0.8)
     }
 
     public zoomReset() {
-        this.#svg.transition(this.#transition)
+        this.#svg
+            .transition()
+            .duration(TreeConfig.TRANSITION_DURATION)
             .call(this.#zoom.transform, zoomIdentity)
     }
 
