@@ -298,9 +298,7 @@ class TreeRenderer {
         // 创建 svg 元素
         const _svg = create('svg')
             .attr('class', 'tree-root')
-            // .attr('width', TreeConfig.GRAPH_WIDTH)
-            .attr('width', '100%')
-        // .attr('height', '100%')
+            .attr('width', TreeConfig.GRAPH_WIDTH)
         const _linkGroup = _svg.append('g').attr('class', 'tree-links')
         const _nodeGroup = _svg.append('g').attr('class', 'tree-nodes')
         const _zoom = zoom<SVGSVGElement, undefined>()
