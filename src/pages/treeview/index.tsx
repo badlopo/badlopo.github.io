@@ -15,18 +15,27 @@ const TreeviewPage = () => {
     const [ searchParam ] = useSearchParams()
     const target = searchParam.get('target') as TreeAnchorTarget ?? '_blank'
 
-    const ref = useRef<HTMLDivElement | null>(null)
+    const hostRef = useRef<HTMLDivElement | null>(null)
+    const trRef = useRef<TreeRenderer | null>(null)
 
     useEffect(() => {
-        const tr = new TreeRenderer(ref.current!, tree, target)
+        const tr = new TreeRenderer(hostRef.current!, tree, target)
         tr.render()
+        trRef.current = tr
 
         return () => {
+            trRef.current = null
             tr.dispose()
         }
     }, [])
 
-    return <div ref={ ref } className={ 'tree-container' }/>
+    return <div ref={ hostRef } className={ 'tree-container' }>
+        <section className={ 'operation-panel' }>
+            <button className={ 'zoom-in' } onClick={ () => trRef.current?.zoomIn() }>Zoom In</button>
+            <button className={ 'zoom-out' } onClick={ () => trRef.current?.zoomOut() }>Zoom Out</button>
+            <button className={ 'zoom-reset' } onClick={ () => trRef.current?.zoomReset() }>Reset</button>
+        </section>
+    </div>
 }
 
 const treeBuilder = (archive: ProseArchive): TreeNodeLv0 => {

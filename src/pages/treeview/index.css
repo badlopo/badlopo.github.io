@@ -1,8 +1,36 @@
 .tree-container {
+    position: relative;
     width: 100%;
     height: 100%;
+    background-color: white;
+    overflow: auto;
+
+    .operation-panel {
+        position: fixed;
+        z-index: 10;
+        left: 16px;
+        bottom: 16px;
+        display: flex;
+        align-items: center;
+
+        .zoom-in {
+            margin-right: 8px;
+            cursor: zoom-in;
+        }
+
+        .zoom-out {
+            margin-right: 8px;
+            cursor: zoom-out;
+        }
+
+        .zoom-reset {
+            cursor: pointer;
+        }
+    }
 
     .tree-root {
+        cursor: grab;
+
         .tree-links {
             .tree-link {
                 fill: none;
