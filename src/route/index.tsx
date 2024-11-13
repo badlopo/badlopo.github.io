@@ -42,6 +42,7 @@ const routes: RouteObject[] = [
                 ],
             },
             {
+                // usage: '/treeview?target=<target>'
                 path: '/treeview',
                 loader: TreeviewPage.loader,
                 element: <TreeviewPage/>,

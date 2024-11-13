@@ -3,8 +3,8 @@ import './index.css'
 import { archiveLoader, ProseArchive } from "@/utils/loader.ts";
 import { useEffect, useRef } from "react";
 import { TreeNodeLv0, TreeNodeLv2 } from "@/utils/tree/type.ts";
-import { useLoaderData } from "react-router-dom";
-import { TreeRenderer } from "@/utils/tree";
+import { useLoaderData, useSearchParams } from "react-router-dom";
+import { TreeAnchorTarget, TreeRenderer } from "@/utils/tree";
 
 type TreeviewPageLoaderData = {
     tree: TreeNodeLv0
@@ -12,11 +12,13 @@ type TreeviewPageLoaderData = {
 
 const TreeviewPage = () => {
     const { tree } = useLoaderData() as TreeviewPageLoaderData
+    const [ searchParam ] = useSearchParams()
+    const target = searchParam.get('target') as TreeAnchorTarget ?? '_blank'
 
     const ref = useRef<HTMLDivElement | null>(null)
 
     useEffect(() => {
-        const tr = new TreeRenderer(ref.current!, tree)
+        const tr = new TreeRenderer(ref.current!, tree, target)
         tr.render()
 
         return () => {
