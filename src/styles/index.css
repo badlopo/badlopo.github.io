@@ -4,7 +4,7 @@
 
     --nav-height: 78px;
 
-    background-color: #e5e9f080;
+    background-color: #f1f3f7;
     font-family: "Poets Electra", Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
     font-weight: 400;
     line-height: 1.5;
@@ -263,6 +263,29 @@ main {
     }
 }
 
+@keyframes spin {
+    0% {
+        transform: rotate(0);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.loading-mask {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.spinner {
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+}
+
 /* modal */
 .modal-wrapper {
     position: fixed;
@@ -276,6 +299,29 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+@keyframes scale-out {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.treeview-modal {
+    width: 100%;
+    max-width: 720px;
+    height: 80%;
+
+    iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+        border-radius: 8px;
+        animation: scale-out 0.5s;
+    }
 }
 
 /* view spec */

@@ -7,7 +7,9 @@ import { createRoot } from 'react-dom/client'
 
 import { router } from "./route";
 import { ModalManager } from "@/modal";
+import { LoadingMask } from "@/route/loading.tsx";
 
 ModalManager.prelude()
+
 createRoot(document.getElementById('root')!)
-    .render(<RouterProvider router={ router }/>)
+    .render(<RouterProvider router={ router } fallbackElement={ <LoadingMask/> }/>)
