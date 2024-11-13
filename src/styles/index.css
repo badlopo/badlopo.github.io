@@ -14,6 +14,17 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+
+    &::-webkit-scrollbar {
+        width: 0.5rem;
+        height: 0.5rem;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: #ccc;
+        border-radius: 0.25rem;
+        cursor: pointer;
+    }
 }
 
 html, body, #root {
@@ -25,16 +36,6 @@ html, body, #root {
 
 #root {
     overflow: hidden auto;
-
-    &::-webkit-scrollbar {
-        width: 0.5rem;
-    }
-
-    &::-webkit-scrollbar-thumb {
-        background-color: #ccc;
-        border-radius: 0.25rem;
-        cursor: pointer;
-    }
 }
 
 img {
@@ -453,9 +454,17 @@ main {
 
 /* page spec */
 .home-page {
+    max-width: calc(100% - 2rem);
+    height: calc(100% - var(--nav-height));
+    margin: 0 auto;
     font-size: 2rem;
     font-style: italic;
     text-align: center;
+    text-wrap: balance;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .prose-gallery-page {

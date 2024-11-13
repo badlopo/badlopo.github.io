@@ -1,11 +1,19 @@
+const QUOTE = [
+    // 'Then am I',
+    // 'A happy fly,',
+    // 'If I live,',
+    // 'Or if I die.',
+    'seek out the righteous,',
+    'where’er they may be!',
+]
+
 const HomePage = () => {
     return (
-        <main className={ 'prose-view home-page' }>
-            <p>Then am I</p>
-            <p>A happy fly,</p>
-            <p>If I live,</p>
-            <p>Or if I die.</p>
-        </main>
+        <div className={ 'home-page' }>
+            <main>
+                { QUOTE.map((line, index) => <p key={ index }>{ line }</p>) }
+            </main>
+        </div>
     )
 }
 
