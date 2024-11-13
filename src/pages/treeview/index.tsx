@@ -63,9 +63,6 @@ const treeBuilder = (archive: ProseArchive): TreeNodeLv0 => {
 TreeviewPage.loader = async (): Promise<TreeviewPageLoaderData> => {
     const proses = (await archiveLoader('prose'))!
 
-    // TODO: process
-    console.log('got prose archive:', proses)
-
     return { tree: treeBuilder(proses) }
 }
 

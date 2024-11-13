@@ -1,12 +1,31 @@
-import { create } from "@ebay/nice-modal-react";
+import { create, useModal } from "@ebay/nice-modal-react";
 import { ModalWrapper } from "@/modal/base.tsx";
+import { useRef } from "react";
 
 const TreeviewModal = create(() => {
+    const modalRef = useRef<HTMLDivElement | null>(null)
+    const { resolve, remove } = useModal()
+
+    const closeModal = () => {
+        const el = modalRef.current!
+        const animation = el.animate([
+            { transform: 'scale(1)' },
+            { transform: 'scale(0)' },
+        ], {
+            duration: 300,
+            fill: 'forwards',
+            easing: 'ease-out',
+        })
+        animation.onfinish = () => {
+            resolve()
+            remove()
+        }
+    }
+
     return (
-        <ModalWrapper>
-            <div>
-                <h1>Treeview Modal</h1>
-                <p>This is a treeview modal</p>
+        <ModalWrapper onBgClick={ closeModal }>
+            <div ref={ modalRef } className={ 'treeview-modal' }>
+                <iframe src={ '/#/treeview?target=_parent' }/>
             </div>
         </ModalWrapper>
     )
