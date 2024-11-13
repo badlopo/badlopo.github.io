@@ -6,12 +6,12 @@ import { TreeNodeLv0, TreeNodeLv2 } from "@/utils/tree/type.ts";
 import { useLoaderData } from "react-router-dom";
 import { TreeRenderer } from "@/utils/tree";
 
-type TreePageLoaderData = {
+type TreeviewPageLoaderData = {
     tree: TreeNodeLv0
 }
 
-const TreePage = () => {
-    const { tree } = useLoaderData() as TreePageLoaderData
+const TreeviewPage = () => {
+    const { tree } = useLoaderData() as TreeviewPageLoaderData
 
     const ref = useRef<HTMLDivElement | null>(null)
 
@@ -49,7 +49,7 @@ const treeBuilder = (archive: ProseArchive): TreeNodeLv0 => {
     }
 }
 
-TreePage.loader = async (): Promise<TreePageLoaderData> => {
+TreeviewPage.loader = async (): Promise<TreeviewPageLoaderData> => {
     const proses = (await archiveLoader('prose'))!
 
     // TODO: process
@@ -59,5 +59,5 @@ TreePage.loader = async (): Promise<TreePageLoaderData> => {
 }
 
 export {
-    TreePage,
+    TreeviewPage,
 }
