@@ -1,14 +1,12 @@
-import { useState } from "react";
 import { Link, LoaderFunctionArgs, useLoaderData, useSearchParams } from "react-router-dom";
 import { archiveLoader, ProseArchive } from "@/utils/loader.ts";
 import { IconTag } from "@/assets/icon.tsx";
+import { ModalManager } from "@/modal";
 
 const ProseGalleryPage = () => {
-    const { date, items, statistics } = useLoaderData() as ProseArchive
+    const { date, items } = useLoaderData() as ProseArchive
     const [ searchParams, setSearchParams ] = useSearchParams()
     const filter = searchParams.get('category')
-    const [ _showStatistics, setShowStatistics ] = useState<boolean>(false)
-    const showStatistics = _showStatistics && !filter
 
     const resetFilter = () => {
         setSearchParams(prev => {
@@ -29,14 +27,10 @@ const ProseGalleryPage = () => {
             <div className={ 'meta-section' }>
                 <span>Archived: { new Date(date).toLocaleDateString() }</span>
                 <span style={ { marginLeft: 16 } }>Total: { items.length }</span>
-                {
-                    !!filter ? null : (
-                        <button style={ { marginLeft: 16 } }
-                                onClick={ () => setShowStatistics(v => !v) }>
-                            Statistics
-                        </button>
-                    )
-                }
+                <button style={ { marginLeft: 16 } }
+                        onClick={ () => ModalManager.show('treeview') }>
+                    Treeview
+                </button>
             </div>
 
             {
@@ -45,24 +39,6 @@ const ProseGalleryPage = () => {
                         <span>Category: <i>{ filter }</i></span>
                         <button onClick={ resetFilter }>Reset</button>
                     </div>
-                ) : null
-            }
-
-            {
-                showStatistics ? (
-                    <ul className={ 'statistic-block' }>
-                        {
-                            Object.entries(statistics).map(([ category, count ]) => {
-                                return (
-                                    <li key={ category } className={ 'statistic-item' }
-                                        onClick={ () => applyFilter(category) }>
-                                        <span className={ 'title' }>{ category }: </span>
-                                        <span>{ count }</span>
-                                    </li>
-                                )
-                            })
-                        }
-                    </ul>
                 ) : null
             }
 
