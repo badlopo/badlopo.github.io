@@ -7,6 +7,10 @@ const DevPage = () => {
                 ModalManager.show('treeview')
             } }>show treeview modal
             </button>
+            <button onClick={ () => {
+                ModalManager.show('image', { src: 'https://badlopo.github.io/lopo.svg' })
+            } }>show image modal
+            </button>
         </main>
     )
 }
