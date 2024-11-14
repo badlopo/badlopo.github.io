@@ -2,6 +2,8 @@ import { LoaderFunctionArgs, useLoaderData } from "react-router-dom";
 import { Tooltip } from "react-tooltip";
 import { ProseConfig, proseLoader } from "@/utils/loader.ts";
 import { IconMenu } from "@/assets/icon.tsx";
+import { useEffect } from "react";
+import { ModalManager } from "@/modal";
 
 const ProsePage = () => {
     const { title, created, updated, content, headings } = useLoaderData() as ProseConfig
@@ -9,6 +11,15 @@ const ProsePage = () => {
     const navigateTo = (id: string) => {
         document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
     }
+
+    useEffect(() => {
+        const previewHandler = (ev: Event) => {
+            const src = (ev as CustomEvent<HTMLImageElement>).detail.src
+            ModalManager.show('image', { src })
+        }
+        window.addEventListener('@lopo/preview', previewHandler)
+        return () => window.removeEventListener('@lopo/preview', previewHandler)
+    }, [])
 
     return (
         <main className={ 'prose-view prose-page' }>

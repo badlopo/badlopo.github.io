@@ -22,6 +22,9 @@ const marked = new Marked(
             link({ href, title, text }: Tokens.Link): string {
                 const titleAttr = title ? ` title="${ title }"` : ''
                 return `<a href="${ href }"${ titleAttr } target="_blank">${ text }</a>`
+            },
+            image({ href, text }: Tokens.Image): string {
+                return `<img class="prose-image" src="${ href }" alt="${ text }" onclick="window.dispatchEvent(new CustomEvent('@lopo/preview', {detail: this}))"/>`
             }
         }
     }

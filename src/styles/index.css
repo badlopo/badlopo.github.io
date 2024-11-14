@@ -417,6 +417,10 @@ main {
         font-size: 1.5rem;
     }
 
+    img.prose-image {
+        cursor: pointer;
+    }
+
     .heading-anchor {
         scroll-margin-top: var(--nav-height);
     }
