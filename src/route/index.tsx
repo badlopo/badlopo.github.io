@@ -7,6 +7,7 @@ import { AboutPage } from "@/pages/about.tsx";
 import { MePage } from "@/pages/me.tsx";
 import { DevPage } from "@/pages/dev";
 import { TreeviewPage } from "@/pages/treeview";
+import { UnknownPage } from "@/pages/unknown.tsx";
 
 const routes: RouteObject[] = [
     {
@@ -39,6 +40,10 @@ const routes: RouteObject[] = [
                         loader: MePage.loader,
                         element: <MePage/>,
                     },
+                    {
+                        path: '/*',
+                        element: <UnknownPage/>
+                    }
                 ],
             },
             {
