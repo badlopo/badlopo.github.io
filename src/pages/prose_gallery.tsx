@@ -2,6 +2,7 @@ import { Link, LoaderFunctionArgs, useLoaderData } from "react-router-dom";
 import { archiveLoader, ProseArchive } from "@/utils/loader.ts";
 import { IconTag } from "@/assets/icon.tsx";
 import { ModalManager } from "@/modal";
+import { Fragment } from "react";
 
 const ProseGalleryPage = () => {
     const { filter, date, items } = useLoaderData() as ProseArchive & { filter?: string }
@@ -38,11 +39,12 @@ const ProseGalleryPage = () => {
                                 {
                                     categories.map((category, index) => {
                                         return (
-                                            <Link key={ category } className={ 'category' }
-                                                  to={ `/prose?category=${ category }` }>
-                                                { index > 0 ? ', ' : null }
-                                                { category }
-                                            </Link>
+                                            <Fragment key={ category }>
+                                                <span>{ index > 0 ? ', ' : null }</span>
+                                                <Link className={ 'category' } to={ `/prose?category=${ category }` }>
+                                                    { category }
+                                                </Link>
+                                            </Fragment>
                                         )
                                     })
                                 }
