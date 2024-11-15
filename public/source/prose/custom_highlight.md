@@ -1,6 +1,6 @@
 ---
 title: 自定义文本高亮的两种实现
-category: javascript
+category: javascript, css
 created: 2024/09/12
 ---
 
