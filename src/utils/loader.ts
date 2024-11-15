@@ -43,7 +43,7 @@ marked.parse = (...args) => {
 type ProseArchiveItem = {
     filename: string
     title: string
-    category: string
+    categories: string[]
     created: string
     updated: string | null
 }

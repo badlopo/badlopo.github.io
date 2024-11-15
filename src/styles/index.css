@@ -339,11 +339,7 @@ main {
 
 /* view spec */
 .gallery-view {
-    a.operate-button {
-        text-decoration: none;
-    }
-
-    a:not(.operate-button) {
+    a {
         color: currentColor;
         text-decoration: underline transparent;
         text-underline-offset: 0.25rem;
@@ -366,7 +362,7 @@ main {
         }
     }
 
-    .operate-button {
+    .categories {
         margin-right: 0.5rem;
         padding-inline: 0.5rem;
         border: solid 1px transparent;
@@ -379,12 +375,12 @@ main {
         display: flex;
         align-items: center;
 
-        span {
+        .category {
             margin-left: 0.25rem;
-        }
 
-        &:hover {
-            border-color: #4e4e4e;
+            &:hover {
+                text-decoration: underline;
+            }
         }
     }
 

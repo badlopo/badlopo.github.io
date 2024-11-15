@@ -43,7 +43,7 @@ function main
             $configItems.Add(@{
                 filename = $item.Name.Replace(".md", "")
                 title = $frontmatter.title
-                category = $frontmatter.category
+                categories = $frontmatter.category -split ","
                 created = $frontmatter.created
                 updated = $frontmatter.updated
             }) | Out-Null  # omit the output of 'Add' method
@@ -54,14 +54,17 @@ function main
     $statistics = @{ }
     foreach ($item in $configItems)
     {
-        $category = $item.category
-        if ( $statistics.ContainsKey($category))
+        # count the number of items in each category
+        foreach ($category in $item.categories)
         {
-            $statistics[$category] += 1
-        }
-        else
-        {
-            $statistics[$category] = 1
+            if ( $statistics.ContainsKey($category))
+            {
+                $statistics[$category] += 1
+            }
+            else
+            {
+                $statistics[$category] = 1
+            }
         }
     }
 

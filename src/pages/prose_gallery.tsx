@@ -1,25 +1,10 @@
-import { Link, LoaderFunctionArgs, useLoaderData, useSearchParams } from "react-router-dom";
+import { Link, LoaderFunctionArgs, useLoaderData } from "react-router-dom";
 import { archiveLoader, ProseArchive } from "@/utils/loader.ts";
 import { IconTag } from "@/assets/icon.tsx";
 import { ModalManager } from "@/modal";
 
 const ProseGalleryPage = () => {
-    const { date, items } = useLoaderData() as ProseArchive
-    const [ searchParams, setSearchParams ] = useSearchParams()
-    const filter = searchParams.get('category')
-
-    const resetFilter = () => {
-        setSearchParams(prev => {
-            prev.delete('category')
-            return prev
-        })
-    }
-    const applyFilter = (category: string) => {
-        setSearchParams(prev => {
-            prev.set('category', category)
-            return prev
-        })
-    }
+    const { filter, date, items } = useLoaderData() as ProseArchive & { filter?: string }
 
     return (
         <main className={ 'gallery-view prose-gallery-page' }>
@@ -37,18 +22,30 @@ const ProseGalleryPage = () => {
                 !!filter ? (
                     <div className={ 'filter-section' }>
                         <span>Category: <i>{ filter }</i></span>
-                        <button onClick={ resetFilter }>Reset</button>
+                        <Link to={ '/prose' }>
+                            <button>Reset</button>
+                        </Link>
                     </div>
                 ) : null
             }
 
             <ul>
                 {
-                    items.map(({ filename, title, category, created }, index) => (
+                    items.map(({ filename, title, categories, created }, index) => (
                         <li className={ 'prose-item' } key={ index }>
-                            <div className={ 'operate-button' } onClick={ () => applyFilter(category) }>
+                            <div className={ 'categories' }>
                                 <IconTag/>
-                                <span>{ category }</span>
+                                {
+                                    categories.map((category, index) => {
+                                        return (
+                                            <Link key={ category } className={ 'category' }
+                                                  to={ `/prose?category=${ category }` }>
+                                                { index > 0 ? ', ' : null }
+                                                { category }
+                                            </Link>
+                                        )
+                                    })
+                                }
                             </div>
                             <Link className={ 'title' } title={ title } to={ `/prose/${ filename }` }>{ title }</Link>
                             <span className={ 'date' }>{ created }</span>
@@ -66,7 +63,10 @@ ProseGalleryPage.loader = async ({ request }: LoaderFunctionArgs) => {
     const url = new URL(request.url)
     const filter = url.searchParams.get('category')
     if(!!filter) {
-        proses.items = proses.items.filter(prose => prose.category === filter)
+        proses.items = proses.items.filter(prose => prose.categories.includes(filter))
+
+        // @ts-expect-error use as expando
+        proses.filter = filter
     }
 
     return proses
