@@ -2,11 +2,14 @@
 title: react-router 中自定义嵌套路由的 loader 执行顺序
 category: react
 created: 2024/11/10
+updated: 2024/11/15
 ---
 
 > 关于 `dataStrategy` 参数:
 > - react-router\@6.23.0 引入 (`unstable_dataStrategy`)
 > - react-router\@6.27.0 稳定 (`dataStrategy`)
+
+---
 
 在使用 react-router 时, 通常会在最外层使用一层布局路由并在其 `loader` 中进行一些全局的初始化和路由跳转逻辑. 在内部页面的 `loader` 中获取数据并渲染页面. 在某些情况下需要控制嵌套路由的 `loader` 的执行顺序, 以确保调用逻辑的正确性.
 
