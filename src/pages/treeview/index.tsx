@@ -52,7 +52,9 @@ const treeBuilder = (archive: ProseArchive): TreeNodeLv0 => {
         }
     }
     for (const item of archive.items) {
-        categories[item.category].children.push({ detail: item })
+        for (const category of item.categories) {
+            categories[category].children.push({ detail: item })
+        }
     }
 
     return {
