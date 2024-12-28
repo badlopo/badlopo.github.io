@@ -1,5 +1,5 @@
-import { Link, NavLink, Outlet } from "react-router-dom";
-import { useEffect, useLayoutEffect } from "react";
+import { Link, NavLink, Outlet, useBlocker, useLocation } from "react-router-dom";
+import { useLayoutEffect } from "react";
 import { Provider } from "@ebay/nice-modal-react";
 
 const RootLayout = () => {
@@ -11,22 +11,21 @@ const RootLayout = () => {
 }
 
 const AppLayout = () => {
-    useEffect(() => {
-        // add event listener to save scroll position on page unload
-        window.addEventListener('beforeunload', () => {
-            const container = document.getElementById('root')!
-            sessionStorage.setItem('@scroll', container.scrollTop.toString())
-        })
-    }, [])
+    const location = useLocation()
 
+    // we use 'useBlocker' to do something before nav-out
+    useBlocker(() => {
+        const container = document.getElementById('root')!
+        sessionStorage.setItem(`@scroll/${ location.pathname }`, container.scrollTop.toString())
+        return false
+    })
+
+    // restore
     useLayoutEffect(() => {
-        // restore scroll position on page load (if any)
-        const scrollTop = sessionStorage.getItem('@scroll')
-        if(!!scrollTop) {
-            const container = document.getElementById('root')!
-            container.scrollTop = parseFloat(scrollTop)
-        }
-    }, [])
+        const scrollTop = sessionStorage.getItem(`@scroll/${ location.pathname }`) || '0'
+        const container = document.getElementById('root')!
+        container.scrollTop = parseFloat(scrollTop)
+    }, [ location ])
 
     return (
         <>
