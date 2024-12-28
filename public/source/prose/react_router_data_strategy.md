@@ -15,7 +15,7 @@ updated: 2024/11/16
 
 默认情况下, react-router 中的 `loader` 是并发执行的, 但是在某些情况下需要控制嵌套路由的 `loader` 的执行顺序, 以确保调用逻辑的正确性.
 
-![](/media/react_router_data_strategy.png)
+![](/media/react_router_data_strategy/doc.png)
 
 ## 示例
 

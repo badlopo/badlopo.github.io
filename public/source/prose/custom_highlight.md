@@ -12,7 +12,7 @@ created: 2024/09/12
 
 ### 效果
 
-![](/media/custom_highlight_1.png)
+![](/media/custom_highlight/string_split_impl.png)
 
 ### 实现
 
@@ -86,7 +86,7 @@ created: 2024/09/12
 
 ### 效果
 
-![](/media/custom_highlight_2.png)
+![](/media/custom_highlight/css_impl.png)
 
 ### 实现
 

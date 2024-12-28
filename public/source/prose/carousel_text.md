@@ -12,7 +12,7 @@ created: 2024/10/23
 
 ## 效果
 
-![](/media/carousel_text.gif)
+![](/media/carousel_text/carousel_text.gif)
 
 ## 组件实现
 

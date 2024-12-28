@@ -16,7 +16,7 @@ created: 2024/07/06
 
 ## 示例
 
-![](/media/svg_fill_rule.svg)
+![](/media/svg_fill_rule/svg_fill_rule.svg)
 
 对形状 `M10,20 40,20 40,30 10,30Z M20,10 30,10 30,40 20,40Z`, 分析区域`3`的内外性.
 

@@ -8,7 +8,7 @@ created: 2024/11/04
 
 ## 效果
 
-![](/media/svg_path_handwriting.gif)
+![](/media/svg_path_handwriting/svg_path_handwriting.gif)
 
 ## 实现
 

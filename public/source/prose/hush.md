@@ -30,7 +30,7 @@ Provides online calculations of various digital digest algorithms.
 
 ## Preview
 
-![](/media/hush.png)
+![](/media/hush/hush.png)
 
 ## References
 

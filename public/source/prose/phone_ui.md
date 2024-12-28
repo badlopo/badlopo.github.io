@@ -8,7 +8,7 @@ created: 2024/11/05
 
 ## 效果
 
-![](/media/phone_ui.png)
+![](/media/phone_ui/phone_ui.png)
 
 ## 实现
 

@@ -6,7 +6,7 @@ created: 2024/10/15
 
 ## CSS 选择器的优先级
 
-![](/media/css_specificity.png)
+![](/media/css_specificity/css_specificity.png)
 
 ## 避免 !important
 

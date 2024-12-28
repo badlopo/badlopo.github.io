@@ -21,7 +21,7 @@ created: 2024/09/25
 
 ## 示例
 
-![](/media/d3_utils_bezier_curve_1.png)
+![](/media/d3_utils_bezier_curve/horizontal.png)
 
 生成函数 (以 `linkHorizontal` 为例)
 
