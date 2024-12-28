@@ -50,7 +50,9 @@ const resolve_prose_file = (filename) => {
 }
 
 const files = fs.readdirSync(prose_dir)
-const items = files.map(file => resolve_prose_file(file))
+const items = files
+    .map(file => resolve_prose_file(file))
+    .sort((a, b) => new Date(b.created) - new Date(a.created))
 
 const statistics = {}
 items.forEach(cfg => {
