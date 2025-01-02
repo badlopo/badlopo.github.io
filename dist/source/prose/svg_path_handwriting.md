@@ -8,11 +8,11 @@ created: 2024/11/04
 
 ## 效果
 
-![](/media/svg_path_handwriting.gif)
+![](/media/svg_path_handwriting/svg_path_handwriting.gif)
 
 ## 实现
 
-- 使用 `SVGGeometryElement. getTotalLength` 方法获取路径的长度
+- 使用 `SVGGeometryElement.getTotalLength` 方法获取路径的长度
 - 调整 `stroke-dasharray` 属性实现动画
 
 ```html

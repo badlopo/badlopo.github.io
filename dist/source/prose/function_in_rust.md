@@ -64,9 +64,9 @@ fn function_item_typename() {
 没有直接引用 `function item type` 的语法，但编译器会在错误消息中将类型显示为类似 `fn() -> i32 {fn_name}` 形式的内容。某些编辑器也会显示此类型。
 
 - 函数 foo 的类型提示
-  ![](/media/function_in_rust_1.png)
+  ![](/media/function_in_rust/foo.png)
 - 函数 bar 的类型提示
-  ![](/media/function_in_rust_2.png)
+  ![](/media/function_in_rust/bar.png)
 
 ## Function pointer type
 

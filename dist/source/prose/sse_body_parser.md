@@ -212,7 +212,7 @@ main()
 
 输出:
 
-![](/media/sse_body_parser.png)
+![](/media/sse_body_parser/sse_body_parser.png)
 
 ## References
 

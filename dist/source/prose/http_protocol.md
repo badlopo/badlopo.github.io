@@ -132,19 +132,19 @@ In **June 2022**, **HTTP/3.0** was finally standardized as **rfc9114**
 
 ### Request Multiplexing
 
-![Request multiplexing](/media/http_protocol_1.png)
+![Request multiplexing](/media/http_protocol/multiplexing.png)
 
 ### Header Compression
 
-![Header compression](/media/http_protocol_2.png)
+![Header compression](/media/http_protocol/compression.png)
 
 ### Binary Protocol
 
-![Binary protocol](/media/http_protocol_3.png)
+![Binary protocol](/media/http_protocol/binary_protocol.png)
 
 ### Server Push
 
-![Server push](/media/http_protocol_4.png)
+![Server push](/media/http_protocol/server_push.png)
 
 ### Simple Comparison
 
@@ -158,23 +158,23 @@ In **June 2022**, **HTTP/3.0** was finally standardized as **rfc9114**
 
 We can see how requests are made through multiple batches (TCP connections).
 
-![Http/1.1](/media/http_protocol_5.png)
+![Http/1.1](/media/http_protocol/http_1_1.png)
 
 - Http/2: 102 requests, 11.19s load time
 
 We can see how requests are made through 2 batches (TCP connections). Take note of the load time. In this case, it is a bit lower than the load time of HTTP/1.1 example (but it doesn't have to be always). This example shows the multiplexing of client requests.
 
-![Http/2](/media/http_protocol_6.png)
+![Http/2](/media/http_protocol/http_2.png)
 
 - Http/2 with Server Push: 102 requests, 3.17s load time
 
 We can see how requests are made through 1 batch (1 TCP connection).
 
-![Http/2 with Server Push](/media/http_protocol_7.png)
+![Http/2 with Server Push](/media/http_protocol/http_2_server_push.png)
 
 - Animation demonstration
 
-![Animation demonstration](/media/http_protocol_8.gif)
+![Animation demonstration](/media/http_protocol/animation_demonstration.gif)
 
 ## References
 

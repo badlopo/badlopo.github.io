@@ -6,7 +6,7 @@ created: 2024/08/20
 
 ## 效果
 
-![](/media/css_text_shimmer.gif)
+![](/media/css_text_shimmer/css_text_shimmer.gif)
 
 ## CSS
 

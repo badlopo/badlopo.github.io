@@ -10,33 +10,33 @@ created: 2024/11/19
 
 1\. 绳子对折成`U`形 (上方绳子为`A`, 下方绳子为`B`)
 
-![](/media/jingangjie1.png)
+![](/media/jingangjie/jingangjie1.png)
 
 2\. 绳子`A`绕环后置于绳子`B`后方
 
-![](/media/jingangjie2.png)
+![](/media/jingangjie/jingangjie2.png)
 
 3\. 绳子`A`向下绕过手指(此处用笔代替)后穿过环
 
-![](/media/jingangjie3.png)
+![](/media/jingangjie/jingangjie3.png)
 
 4\. 绳子`B`拉紧
 
-![](/media/jingangjie4.png)
+![](/media/jingangjie/jingangjie4.png)
 
 ## 编织
 
 1\. 取出绳圈, 捏住绳结翻转
 
-![](/media/jingangjie5.png)
+![](/media/jingangjie/jingangjie5.png)
 
 2\. `A`和`B`角色互换重复起结步骤3-4
 
-![](/media/jingangjie6.png)
+![](/media/jingangjie/jingangjie6.png)
 
 ## 成品
 
-![](/media/jingangjie7.png)
+![](/media/jingangjie/jingangjie7.png)
 
 ## 注意事项
 
