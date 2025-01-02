@@ -12,7 +12,7 @@ created: 2024/11/04
 
 ## 实现
 
-- 使用 `SVGGeometryElement. getTotalLength` 方法获取路径的长度
+- 使用 `SVGGeometryElement.getTotalLength` 方法获取路径的长度
 - 调整 `stroke-dasharray` 属性实现动画
 
 ```html
