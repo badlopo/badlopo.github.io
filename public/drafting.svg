@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+    <!-- 波浪 -->
+    <path id="wave" fill="none" stroke="#00BFFF" stroke-width="1" d="M0 120 Q 50 100, 100 120 T 200 120"/>
+
+    <!-- 小船 -->
+    <g id="boat">
+        <path fill="#8B4513" d="M70 140 L130 140 L115 150 L85 150 Z"/>
+        <path fill="#B22222" d="M100 125 L100 140 L105 140 L105 125 Z"/>
+    </g>
+
+    <animateTransform
+            href="#boat"
+            attributeName="transform"
+            type="translate"
+            values="0 0; 0 5; 0 0"
+            dur="2s"
+            keyTimes="0; 0.4; 1"
+            repeatCount="indefinite"/>
+
+    <animate
+            href="#wave"
+            attributeName="d"
+            values="M0 140 Q 50 120, 100 140 T 200 140;
+            M0 140 Q 50 130, 100 150 T 200 140;
+            M0 160 Q 50 120, 100 140 T 200 160;
+            M0 140 Q 50 120, 100 140 T 200 140;"
+            dur="4s"
+            keyTimes="0; 0.3; 0.6; 1"
+            repeatCount="indefinite"/>
+</svg>
