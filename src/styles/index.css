@@ -513,16 +513,29 @@ main {
 /* page spec */
 .home-page {
     max-width: calc(100% - 2rem);
-    height: calc(100% - var(--nav-height));
-    margin: 0 auto;
-    font-size: 2rem;
+    height: calc(100% - var(--nav-height) - 2rem);
+    margin: 1rem auto;
+    font-size: 1.2rem;
     font-style: italic;
     text-align: center;
     text-wrap: balance;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    overflow: auto;
+
+    &::-webkit-scrollbar-thumb {
+        background-color: transparent;
+    }
+
+    div::before {
+        content: "";
+        position: fixed;
+        left: 50%;
+        bottom: 1rem;
+        width: 720px;
+        max-width: 100%;
+        height: 4rem;
+        transform: translate(-50%);
+        background: linear-gradient(180deg, #ffffff99, #ffffff);
+    }
 }
 
 .prose-gallery-page {

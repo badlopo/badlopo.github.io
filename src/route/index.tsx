@@ -4,7 +4,6 @@ import { HomePage } from "@/pages/home.tsx";
 import { ProsePage } from "@/pages/prose.tsx";
 import { ProseGalleryPage } from "@/pages/prose_gallery.tsx";
 import { AboutPage } from "@/pages/about.tsx";
-import { MePage } from "@/pages/me.tsx";
 import { DevPage } from "@/pages/dev";
 import { TreeviewPage } from "@/pages/treeview";
 import { UnknownPage } from "@/pages/unknown.tsx";
@@ -18,6 +17,7 @@ const routes: RouteObject[] = [
                 children: [
                     {
                         path: '/',
+                        loader: HomePage.loader,
                         element: <HomePage/>,
                     },
                     {
@@ -34,11 +34,6 @@ const routes: RouteObject[] = [
                         path: '/about',
                         loader: AboutPage.loader,
                         element: <AboutPage/>,
-                    },
-                    {
-                        path: '/me',
-                        loader: MePage.loader,
-                        element: <MePage/>,
                     },
                     {
                         path: '/*',

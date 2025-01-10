@@ -45,7 +45,6 @@ const AppLayout = () => {
                 <div className={ 'navbar' }>
                     <NavLink to={ '/prose' }>Prose</NavLink>
                     <NavLink to={ '/about' }>About</NavLink>
-                    <NavLink to={ '/me' }>Me</NavLink>
                 </div>
             </nav>
 

@@ -7,16 +7,19 @@
 //     'where’er they may be!',
 // ]
 
+import { useLoaderData } from "react-router-dom";
+import { RawConfig, rawLoader } from "@/utils/loader.ts";
+
 const HomePage = () => {
+    const { content } = useLoaderData() as RawConfig
     return (
-        <div className={ 'home-page' }>
-            <img style={ { width: '100%', height: '100%' } } src="/drafting.svg" alt=""/>
-            {/*<main>*/ }
-            {/*    { QUOTE.map((line, index) => <p key={ index }>{ line }</p>) }*/ }
-            {/*</main>*/ }
-        </div>
+        <main className={ 'home-page prose-view' }>
+            <div dangerouslySetInnerHTML={ { __html: content } }/>
+        </main>
     )
 }
+
+HomePage.loader = () => rawLoader('source/home.md')
 
 export {
     HomePage,
