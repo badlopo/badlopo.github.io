@@ -41,7 +41,8 @@ const ProseGalleryPage = () => {
                                         return (
                                             <Fragment key={ category }>
                                                 <span>{ index > 0 ? ', ' : null }</span>
-                                                <Link className={ 'category' } to={ `/prose?category=${ category }` }>
+                                                <Link className={ 'category' }
+                                                      to={ `/prose?category=${ encodeURIComponent(category) }` }>
                                                     { category }
                                                 </Link>
                                             </Fragment>
@@ -64,7 +65,7 @@ ProseGalleryPage.loader = async ({ request }: LoaderFunctionArgs) => {
 
     const url = new URL(request.url)
     const filter = url.searchParams.get('category')
-    if(!!filter) {
+    if (!!filter) {
         proses.items = proses.items.filter(prose => prose.categories.includes(filter))
 
         // @ts-expect-error use as expando
